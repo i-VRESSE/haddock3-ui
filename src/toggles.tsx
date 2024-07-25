@@ -286,7 +286,7 @@ export function PickIn3D({
   return (
     <div className="flex flex-row items-center gap-1">
       <div>3D viewer picks</div>
-      {/* TODO implement not using shadcn/ui */}
+      {/* TODO implement not using shadcn/ui or as prop of component */}
       {/* <ToggleGroup type="single" defaultValue={value} onValueChange={onChange}>
         <ToggleGroupItem
           value="act"

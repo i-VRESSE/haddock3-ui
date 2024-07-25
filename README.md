@@ -23,3 +23,6 @@ If you are not using tailwind, you can include the css file in your html that mi
 ## Usage
 
 See [sidebar](https://i-VRESSE.github.io/haddock3-ui) for a list of all components.
+Once component is selected
+- use `</>` button in footer to see the code.
+- use sliders icon button in footer to change props when available

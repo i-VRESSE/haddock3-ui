@@ -178,7 +178,7 @@ export const ActiveAndNeigbours: Story = () => {
 }
 
 export const ActiveDisabledAndPassive = () => (
-  <div>Unwanted combination</div>
+  <div className="text-red-500 text-xl">Unwanted combination</div>
 )
 
 export const ActiveAndPassive: Story = () => {
