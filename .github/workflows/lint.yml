@@ -1,4 +1,4 @@
-name: Lint
+name: Build
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,3 +23,5 @@ jobs:
         run: pnpm install
       - name: Lint
         run: pnpm lint
+      - name: Build
+        run: pnpm build

@@ -651,16 +651,17 @@ export function LigandViewer({
   function onLigandPick(
     chain: string,
     residue: number,
-    componentName: string,
+    _componentName: string,
     resname: string,
   ) {
+
     onPick(`${resname}-${chain}-${residue}`);
   }
 
   function onLigandHover(
     chain: string,
     residue: number,
-    componentName: string,
+    _componentName: string,
     resname: string,
   ) {
     onHover(`${resname}-${chain}-${residue}`);
