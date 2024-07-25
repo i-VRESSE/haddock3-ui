@@ -2,4 +2,5 @@
 export default {
     defaultStory: "index--readme",
     outDir: "docs",
+    base: process.env.CI ? "/haddock3-ui/" : "/",
 };

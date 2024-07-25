@@ -43,5 +43,5 @@ pnpm build:docs
 
 Writes to `docs/` folder, which can be hosted on GitHub pages.
 
-The site can be previewed with `pnpm ladle preview`.
+The site can be previewed with `pnpm preview`.
 
