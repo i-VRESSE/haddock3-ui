@@ -2,14 +2,13 @@ import { NGLSurface, NGLStage, NGLComponent } from "./molviewer";
 
 import { structure } from "./structure";
 import { useState } from "react";
+import { ActPass, PickIn3D } from "./toggles";
 
 function SurfaceViewer(
   props: Parameters<typeof NGLSurface>[0] &
     Omit<Parameters<typeof NGLStage>[0], "children">
 ) {
   const { onHover, onMouseLeave, onPick, ...surfaceprops } = props;
-  // File does not change
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   return (
     <div className="h-[500px] w-full">
       <NGLStage onHover={onHover} onMouseLeave={onMouseLeave} onPick={onPick}>
@@ -63,7 +62,7 @@ export const WithHighlight = () => (
 );
 
 export const Pickable = () => {
-  const [picked, setPicked] = useState<any[] | undefined>(undefined);
+  const [picked, setPicked] = useState<[string,number,string,string] | undefined>(undefined);
   return (
     <>
       <div>
@@ -89,8 +88,40 @@ export const Pickable = () => {
   );
 };
 
+export const PickableActiveOrPassive = () => {
+  const [what, setWhat] = useState<ActPass>("act");
+  const [picked, setPicked] = useState<[string,number,string,string, string] | undefined>(undefined);
+  return (
+    <>
+      <div>
+        <p>
+          (Click on surface to select residue, only works when ngl show tooltip)
+        </p>
+        <PickIn3D
+          value={what}
+          onChange={(newWhat) => setWhat(newWhat)}
+        />
+        <p>last picked: {JSON.stringify(picked)}</p>
+      </div>
+      <SurfaceViewer
+        {...{
+          active: [932, 935, 936, 949, 950, 952, 958],
+          activeColor: "green",
+          passive: [970],
+          neighbours: [971, 972],
+          passiveColor: "yellow",
+          neighboursColor: "orange",
+          defaultColor: "white",
+          onPick: (chain, resno, comp, resname) =>
+            setPicked([chain, resno, comp, resname, what]),
+        }}
+      />
+    </>
+  );
+};
+
 export const Hoverable = () => {
-  const [hovered, setHovered] = useState<any[] | undefined>(undefined);
+  const [hovered, setHovered] = useState<[string,number,string,string] | undefined>(undefined);
   return (
     <>
       <div>

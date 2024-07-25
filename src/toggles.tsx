@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import {
   type ChangeEvent,
   type PropsWithChildren,
@@ -50,7 +51,7 @@ export function useResidueChangeHandler({
         // For example given passive is selected,
         // then selecting same residue as active should remove it from passive.
         const passiveWithoutAlsoActive = selected.pass.filter(
-          (r) => !newSelected.includes(r),
+          (r) => !newSelected.includes(r)
         );
         onChange({
           act: newSelected,
@@ -67,7 +68,7 @@ export function useResidueChangeHandler({
         setLastChecked(index);
       }
     },
-    [filter, lastChecked, onChange, options, selected],
+    [filter, lastChecked, onChange, options, selected]
   );
 
   return handler;
@@ -139,7 +140,7 @@ export function ResidueCheckbox({
     <div
       className={cn(
         "inline-block w-4 text-center font-mono hover:bg-secondary hover:text-secondary-foreground",
-        residueVariants[variant],
+        residueVariants[variant]
       )}
       title={`${resno.toString()}:${resname}`}
       onMouseEnter={onHover}
@@ -207,7 +208,7 @@ export function ResiduesSelect({
 }) {
   const surface = useMemo(
     () => options.filter((r) => r.surface).map((r) => r.resno),
-    [options],
+    [options]
   );
   const handleChange = useResidueChangeHandler({
     options,
@@ -283,28 +284,42 @@ export function PickIn3D({
   value: ActPass;
   onChange: (value: ActPass) => void;
 }) {
+  const idAct = useId();
+  const idPass = useId();
   return (
     <div className="flex flex-row items-center gap-1">
       <div>3D viewer picks</div>
-      {/* TODO implement not using shadcn/ui or as prop of component */}
-      {/* <ToggleGroup type="single" defaultValue={value} onValueChange={onChange}>
-        <ToggleGroupItem
+      {/* TODO make stylable from outside */}
+      <div
+        className={value === "act" ? "bg-green-100" : ""}
+        aria-label="Picking in 3D viewer will select active"
+        title="Picking in 3D viewer will select active"
+      >
+        <input
+          type="radio"
+          id={idAct}
+          name="pick"
           value="act"
-          className="data-[state=on]:bg-green-100"
-          aria-label="Picking in 3D viewer will select active"
-          title="Picking in 3D viewer will select active"
-        >
-          A
-        </ToggleGroupItem>
-        <ToggleGroupItem
+          checked={value === "act"}
+          onChange={() => onChange("act")}
+        />
+        <label htmlFor={idAct}  className="pl-1">Active</label>
+      </div>
+      <div
+        className={value === "pass" ? "bg-yellow-100" : ""}
+        aria-label="Picking in 3D will viwer select passive"
+        title="Picking in 3D will viwer select passive"
+      >
+        <input
+          type="radio"
+          id={idPass}
+          name="pick"
           value="pass"
-          className="data-[state=on]:bg-yellow-100"
-          aria-label="Picking in 3D will viwer select passive"
-          title="Picking in 3D will viwer select passive"
-        >
-          P
-        </ToggleGroupItem>
-      </ToggleGroup> */}
+          checked={value === "pass"}
+          onChange={() => onChange("pass")}
+        />
+        <label htmlFor={idPass} className="pl-1">Passive</label>
+      </div>
     </div>
   );
 }
