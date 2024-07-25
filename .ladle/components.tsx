@@ -8,6 +8,7 @@ export const Provider: GlobalProvider = ({
   globalState,
   storyMeta,
 }) => {
+    // Make components that use `className="dark:underline"` dark mode compatible
     const theme = globalState.theme;
     if (theme === 'dark') {
         return (

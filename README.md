@@ -1,30 +1,25 @@
-# React + TypeScript + Vite
+# React components for/from haddock3 webapp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The [haddock3 web application](https://github.com/i-VRESSE/haddock3-webapp) had several components that could be used outside of the web application. This package contains those components.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+npm install @i-vresse/haddock3-ui
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The components are styled with tailwind.
+For your own webapp to pick up the classes in the components, you need to add the following to your `tailwind.config.js`:
+
+```js
+content: [
+    // Existing content goes here
+    './node_modules/@i-vresse/haddock3-ui/dist/index.js',
+],
+```
+
+If you are not using tailwind, you can include the css file in your html that mimics the tailwind classes.
+
+## Usage
+
+See [sidebar](https://i-VRESSE.github.io/haddock3-ui) for a list of all components.
