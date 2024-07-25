@@ -59,5 +59,6 @@
       "default": "./dist/index.js"
     },
     "./package.json": "./package.json"
-  }
+  },
+  "packageManager": "^pnpm@9.6.0"
 }
