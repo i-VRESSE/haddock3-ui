@@ -7,8 +7,6 @@ import {
 	StructureComponent,
 	type StructureRepresentationType,
 } from "ngl";
-/* eslint-disable react-refresh/only-export-components */
-// TODO split in more files
 import {
 	type ErrorInfo,
 	Component as ReactComponent,
@@ -22,6 +20,8 @@ import {
 	useMemo,
 	useState,
 } from "react";
+
+// TODO split in more files
 
 function currentBackground() {
 	let backgroundColor = "white";
