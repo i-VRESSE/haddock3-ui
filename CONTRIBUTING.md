@@ -27,6 +27,18 @@ We use [ladle](https://ladle.dev/) to develop components. To start the developme
 pnpm dev
 ```
 
+To lint use
+
+```bash
+pnpm lint
+```
+
+To format use
+
+```bash
+pnpm format
+```
+
 ## Build package
 
 ```bash

@@ -5,8 +5,4 @@ import { structure } from "./structure";
 
 // TODO make dark mode aware
 
-export const Default: Story = () =>  (
-    <SimpleViewer
-      structure={structure}
-    />
-  );
+export const Default: Story = () => <SimpleViewer structure={structure} />;
