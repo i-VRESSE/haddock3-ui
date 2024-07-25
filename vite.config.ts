@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 import dts from "vite-plugin-dts";
 
 const build: UserConfig['build'] = {
+  sourcemap: true,
   lib: {
     entry: resolve(__dirname, 'src/index.tsx'),
     formats: ['es'],
