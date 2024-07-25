@@ -1,17 +1,14 @@
-import { ResiduesHeader } from "./ResidueHeader";
 import type { Story } from "@ladle/react";
+import { ResiduesHeader } from "./ResidueHeader";
 
 export const ActiveAndPassive: Story<{
-    showActive: boolean;
-    showPassive: boolean;
-}> = ({showActive, showPassive}) => (
-    <ResiduesHeader
-        showActive={showActive}
-        showPassive={showPassive}
-    />
+	showActive: boolean;
+	showPassive: boolean;
+}> = ({ showActive, showPassive }) => (
+	<ResiduesHeader showActive={showActive} showPassive={showPassive} />
 );
 
 ActiveAndPassive.args = {
-    showActive: true,
-    showPassive: true,
+	showActive: true,
+	showPassive: true,
 };
