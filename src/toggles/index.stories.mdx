@@ -1,0 +1,35 @@
+# Toggle components
+
+Components to select residues in a sequence.
+
+## Header
+
+import { Story, Meta } from "@ladle/react";
+import { ResiduesHeader } from "./ResidueHeader";
+
+<Story name="ActiveAndPassive">
+<ResiduesHeader
+        showActive={true}
+        showPassive={true}
+/>
+</Story>
+
+When you do not want user to select passive residues user
+
+<Story name="ActiveOnly">
+<ResiduesHeader
+        showActive={true}
+        showPassive={false}
+/>
+</Story>
+
+When you do not want user to select active residues user
+
+<Story name="PassiveOnly">
+<ResiduesHeader
+        showActive={false}
+        showPassive={true}
+/>
+</Story>
+
+When you do not want user to select any residues user
