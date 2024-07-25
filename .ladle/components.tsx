@@ -6,7 +6,6 @@ import type { GlobalProvider } from "@ladle/react";
 export const Provider: GlobalProvider = ({
   children,
   globalState,
-  storyMeta,
 }) => {
     // Make components that use `className="dark:underline"` dark mode compatible
     const theme = globalState.theme;

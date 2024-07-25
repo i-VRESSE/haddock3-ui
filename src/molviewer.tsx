@@ -75,6 +75,7 @@ export function NGLResidues({
     return "not all";
   }, [residues, chain]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: to not (re)create new representation when selection changes, keep it out of dep list
   useEffect(() => {
     component.addRepresentation(representation, {
       name,
@@ -88,8 +89,6 @@ export function NGLResidues({
         repr.dispose();
       }
     };
-    // to not (re)create new representation when selection changes, keep it out of dep list
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stage, component, color, opacity, name, representation]);
 
   useEffect(() => {
