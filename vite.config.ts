@@ -6,6 +6,7 @@ import dts from "vite-plugin-dts";
 const build: UserConfig['build'] = {
   sourcemap: true,
   lib: {
+    // TODO dont use barrel file
     entry: resolve(__dirname, 'src/index.tsx'),
     formats: ['es'],
     name: '@i-vresse/haddock3-ui',
