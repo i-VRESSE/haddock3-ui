@@ -4,6 +4,7 @@
 [![npmjs.com](https://img.shields.io/npm/v/@i-vresse/haddock3-ui.svg?style=flat)](https://www.npmjs.com/package/@i-vresse/haddock3-ui)
 [![CI](https://github.com/i-VRESSE/haddock3-ui/actions/workflows/lint.yml/badge.svg)](https://github.com/i-VRESSE/haddock3-ui/actions/workflows/lint.yml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12820670.svg)](https://doi.org/10.5281/zenodo.12820670)
+[![Research Software Directory Badge](https://img.shields.io/badge/rsd-00a3e3.svg)](https://research-software-directory.org/software/haddock3-ui)
 
 The [haddock3 web application](https://github.com/i-VRESSE/haddock3-webapp) had several components that could be used outside of the web application. This package contains those components.
 
