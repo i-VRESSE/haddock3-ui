@@ -1,6 +1,6 @@
 {
   "name": "@i-vresse/haddock3-ui",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "private": false,
   "sideEffects": false,
