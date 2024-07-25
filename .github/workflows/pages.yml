@@ -16,8 +16,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
-    name: Build
+  docs:
+    name: Docs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -46,7 +46,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
+    needs: docs
     runs-on: ubuntu-latest
     name: Deploy
     steps:
