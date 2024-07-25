@@ -2,6 +2,7 @@
 
 [![github repo badge](https://img.shields.io/badge/github-repo-000.svg?logo=github&labelColor=gray&color=blue)]([https://github.com/i-VRESSE/haddock3-ui](https://github.com/i-VRESSE/haddock3-ui))
 [![Lint](https://github.com/i-VRESSE/haddock3-ui/actions/workflows/lint.yml/badge.svg)](https://github.com/i-VRESSE/haddock3-ui/actions/workflows/lint.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12820670.svg)](https://doi.org/10.5281/zenodo.12820670)
 
 The [haddock3 web application](https://github.com/i-VRESSE/haddock3-webapp) had several components that could be used outside of the web application. This package contains those components.
 
