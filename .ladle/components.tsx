@@ -12,7 +12,7 @@ export const Provider: GlobalProvider = ({
     const theme = globalState.theme;
     if (theme === 'dark') {
         return (
-            <div className="dark">
+            <div className="dark text-white">
                 {children}
             </div>
         )
