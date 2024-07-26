@@ -25,10 +25,8 @@ import {
 
 function currentBackground() {
 	let backgroundColor = "white";
-	if (document?.documentElement?.classList.contains("dark")) {
+	if (document?.getElementsByClassName("dark").length) {
 		backgroundColor = "black";
-	} else if (document?.documentElement?.classList.contains("light")) {
-		backgroundColor = "white";
 	} else if (window?.matchMedia("(prefers-color-scheme: dark)").matches) {
 		backgroundColor = "black";
 	}
