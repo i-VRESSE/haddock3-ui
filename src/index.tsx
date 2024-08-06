@@ -6,3 +6,4 @@ export { PickIn3D, ResiduesSelect } from "./toggles";
 export { useChunked } from "./useChunked";
 export { ResiduesHeader, residueVariants };
 export type { Variant };
+export {LinkToFile} from "./LinkToFile";
