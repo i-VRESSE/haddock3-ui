@@ -1,5 +1,7 @@
 import type { Story } from "@ladle/react";
-import { useChunked } from "./useChunked";
+import React from "react";
+
+import { useChunked } from "../src/useChunked";
 
 const all = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
 

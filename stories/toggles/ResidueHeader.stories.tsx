@@ -1,5 +1,7 @@
 import type { Story } from "@ladle/react";
-import { ResiduesHeader } from "./ResidueHeader";
+import React from "react";
+
+import { ResiduesHeader } from "../../src/toggles/ResidueHeader";
 
 export const ActiveAndPassive: Story<{
 	showActive: boolean;

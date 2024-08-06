@@ -1,6 +1,8 @@
 import { Story } from "@ladle/react";
-import { Viewer } from "./molviewer";
-import { structure } from "./structure";
+import React from "react";
+
+import { Viewer } from "../src/molviewer";
+import { structure } from "../src/structure";
 
 export const Default: Story = () => {
 	return (

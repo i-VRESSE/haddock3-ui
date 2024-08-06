@@ -27,6 +27,8 @@ We use [ladle](https://ladle.dev/) to develop components. To start the developme
 pnpm dev
 ```
 
+The components code is in `./src/` folder and the ladle stories are in `./stories/` folder.
+
 To lint use
 
 ```bash
@@ -41,11 +43,16 @@ pnpm format
 
 ## Build package
 
+On build following steps are taken:
+1. Run tsc form `*.tsx?` generates `dist/*js` and `dist/*.d.ts` files
+2. Generate package.json with exports filled with each file tsc made
+3. Publish using generated package.json
+
 ```bash
 pnpm build
 ```
 
-Writes js and dts files to `dist/` folder.
+Writes js and dts files to `dist/` folder and regnerates exports in `package.json` file.
 
 ## Build documentation website
 

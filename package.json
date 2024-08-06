@@ -15,7 +15,7 @@
 	},
 	"scripts": {
 		"dev": "ladle serve",
-		"build": "tsc -b && vite build",
+		"build": "tsc && node build.mjs",
 		"build:docs": "ladle build",
 		"preview": "ladle preview",
 		"lint": "biome lint",
@@ -48,19 +48,88 @@
 		"vite": "^5.3.4",
 		"vite-plugin-dts": "^3.9.1"
 	},
-	"files": ["dist"],
+	"files": ["dist", "src"],
 	"module": "dist/index.js",
-	"types": "./dist/src/index.d.ts",
+	"types": "./dist/index.d.ts",
 	"exports": {
-		".": {
-			"module": "./dist/index.js",
+		"./CopyToClipBoardIcon": {
 			"import": {
-				"types": "./dist/src/index.d.ts",
-				"default": "./dist/index.js"
-			},
-			"default": "./dist/index.js"
+				"types": "./dist/CopyToClipBoardIcon.d.ts",
+				"default": "./dist/CopyToClipBoardIcon.js"
+			}
 		},
-		"./package.json": "./package.json"
+		"./HiddenFileInput": {
+			"import": {
+				"types": "./dist/HiddenFileInput.d.ts",
+				"default": "./dist/HiddenFileInput.js"
+			}
+		},
+		"./LinkToFile": {
+			"import": {
+				"types": "./dist/LinkToFile.d.ts",
+				"default": "./dist/LinkToFile.js"
+			}
+		},
+		"./MdxLayout": {
+			"import": {
+				"types": "./dist/MdxLayout.d.ts",
+				"default": "./dist/MdxLayout.js"
+			}
+		},
+		"./cn": {
+			"import": {
+				"types": "./dist/cn.d.ts",
+				"default": "./dist/cn.js"
+			}
+		},
+		"./getResName1": {
+			"import": {
+				"types": "./dist/getResName1.d.ts",
+				"default": "./dist/getResName1.js"
+			}
+		},
+		".": {
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
+		},
+		"./molviewer": {
+			"import": {
+				"types": "./dist/molviewer.d.ts",
+				"default": "./dist/molviewer.js"
+			}
+		},
+		"./structure": {
+			"import": {
+				"types": "./dist/structure.d.ts",
+				"default": "./dist/structure.js"
+			}
+		},
+		"./toggles": {
+			"import": {
+				"types": "./dist/toggles.d.ts",
+				"default": "./dist/toggles.js"
+			}
+		},
+		"./useChunked": {
+			"import": {
+				"types": "./dist/useChunked.d.ts",
+				"default": "./dist/useChunked.js"
+			}
+		},
+		"./toggles/ResidueHeader": {
+			"import": {
+				"types": "./dist/toggles/ResidueHeader.d.ts",
+				"default": "./dist/toggles/ResidueHeader.js"
+			}
+		},
+		"./toggles/variants": {
+			"import": {
+				"types": "./dist/toggles/variants.d.ts",
+				"default": "./dist/toggles/variants.js"
+			}
+		}
 	},
 	"packageManager": "pnpm@9.6.0",
 	"publishConfig": {

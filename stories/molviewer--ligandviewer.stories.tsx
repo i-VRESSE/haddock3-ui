@@ -1,7 +1,8 @@
 import { Story, action } from "@ladle/react";
+import React from "react";
 
 import { useEffect, useState } from "react";
-import { LigandViewer } from "./molviewer";
+import { LigandViewer } from "../src/molviewer";
 
 export const Default: Story<{
 	code: string;

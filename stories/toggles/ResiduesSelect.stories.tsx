@@ -1,10 +1,12 @@
 import { type Story, action, useLadleContext } from "@ladle/react";
+import React from "react";
 import { useState } from "react";
+
 import {
 	ResidueNeighbourSelection,
 	ResidueSelection,
 	ResiduesSelect,
-} from "./toggles";
+} from "../../src/toggles";
 
 export const Surface: Story = () => {
 	const { globalState } = useLadleContext();

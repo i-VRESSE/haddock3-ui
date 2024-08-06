@@ -1,6 +1,8 @@
 import { Story } from "@ladle/react";
+import React from "react";
 import { useMemo, useState } from "react";
-import { getResName1 } from "./getResName1";
+
+import { getResName1 } from "../src/getResName1";
 
 export const Default: Story = () => {
 	const [resName, setResName] = useState("ALA");
