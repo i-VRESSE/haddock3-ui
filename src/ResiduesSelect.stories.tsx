@@ -245,6 +245,12 @@ export const ActiveAndPassive: Story = () => {
 
 export const LongList: Story = () => {
 	const { globalState } = useLadleContext();
+	const aa = [
+		{ resname: "ALA", seq: "A" },
+		{ resname: "GLY", seq: "G" },
+		{ resname: "THR", seq: "T" },
+		{ resname: "CYS", seq: "C" },
+	];
 	return (
 		<ResiduesSelect
 			showActive={true}
@@ -254,8 +260,7 @@ export const LongList: Story = () => {
 			highlight={undefined}
 			options={Array.from({ length: 400 }, (_, i) => ({
 				resno: i + 42,
-				resname: "XXX",
-				seq: "X",
+				...aa[i % 4],
 				surface: true,
 			}))}
 			selected={{
@@ -264,6 +269,48 @@ export const LongList: Story = () => {
 				neighbours: [],
 			}}
 			onChange={action("onChange")}
+			onHover={action("onHover")}
+			theme={globalState.theme === "dark" ? "dark" : "light"}
+		/>
+	);
+};
+
+export const ResnameAsLabel: Story = () => {
+	const { globalState } = useLadleContext();
+	const [selected, setSelected] = useState<ResidueNeighbourSelection>({
+		act: [3],
+		pass: [1],
+		neighbours: [],
+	});
+
+	const onChange = (selected: ResidueSelection) => {
+		setSelected({
+			...selected,
+			neighbours: [],
+		});
+	};
+
+	return (
+		<ResiduesSelect
+			showActive={true}
+			showPassive={true}
+			highlight={undefined}
+			options={[
+				{
+					resno: 3,
+					resname: "IML",
+					seq: "X",
+					surface: true,
+				},
+				{
+					resno: 4,
+					resname: "IP1",
+					seq: "X",
+					surface: true,
+				},
+			]}
+			selected={selected}
+			onChange={onChange}
 			onHover={action("onHover")}
 			theme={globalState.theme === "dark" ? "dark" : "light"}
 		/>

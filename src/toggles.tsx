@@ -134,17 +134,27 @@ export function ResidueCheckbox({
 	if (highlight) {
 		variant = "highlight";
 	}
-
+	// Make checkboxes the same height as ResidueHeader
+	let className = "w-4";
+	if (seq === "X" && resname.length === 3) {
+		className = "grid justify-items-center";
+		if (showActive && showPassive) {
+			className += " h-[4.5rem]";
+		} else if (showActive || showPassive) {
+			className += " h-[3.5rem]";
+		}
+	}
 	return (
 		<div
 			className={cn(
-				"inline-block w-4 text-center font-mono hover:bg-secondary hover:text-secondary-foreground",
+				"inline-block text-center font-mono hover:bg-secondary hover:text-secondary-foreground",
 				residueVariants[variant],
+				className,
 			)}
 			title={`${resno.toString()}:${resname}`}
 			onMouseEnter={onHover}
 		>
-			<label htmlFor={htmlFor}>{seq}</label>
+			<label htmlFor={htmlFor}>{seq === "X" ? resname : seq}</label>
 			{showActive && (
 				<input
 					type="checkbox"
@@ -220,7 +230,7 @@ export function ResiduesSelect({
 
 	return (
 		<>
-			<div className="flex flex-row flex-wrap">
+			<div className="flex flex-row flex-wrap gap-0.5">
 				<ResiduesHeader
 					showActive={showActive}
 					showPassive={showPassive || showNeighbours}
@@ -233,7 +243,10 @@ export function ResiduesSelect({
 						>
 							{chunk[0]!.resno}
 						</p>
-						<div onMouseLeave={() => onHover(undefined)}>
+						<div
+							onMouseLeave={() => onHover(undefined)}
+							className="flex flex-row"
+						>
 							{chunk.map((r, index) => (
 								<ResidueCheckbox
 									key={r.resno}
