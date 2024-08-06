@@ -8,3 +8,4 @@ export { ResiduesHeader, residueVariants };
 export type { Variant };
 export {LinkToFile} from "./LinkToFile";
 export {HiddenFileInput} from "./HiddenFileInput";
+export {getResName1} from "./getResName1";
