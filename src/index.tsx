@@ -7,3 +7,4 @@ export { useChunked } from "./useChunked";
 export { ResiduesHeader, residueVariants };
 export type { Variant };
 export {LinkToFile} from "./LinkToFile";
+export {HiddenFileInput} from "./HiddenFileInput";
