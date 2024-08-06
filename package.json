@@ -1,6 +1,6 @@
 {
 	"name": "@i-vresse/haddock3-ui",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"type": "module",
 	"private": false,
 	"sideEffects": false,
@@ -53,7 +53,7 @@
 	"types": "./dist/src/index.d.ts",
 	"exports": {
 		".": {
-			"module": "./dist/index.mjs",
+			"module": "./dist/index.js",
 			"import": {
 				"types": "./dist/src/index.d.ts",
 				"default": "./dist/index.js"

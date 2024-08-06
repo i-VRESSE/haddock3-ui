@@ -57,3 +57,7 @@ Writes to `docs/` folder, which can be hosted on GitHub pages.
 
 The site can be previewed with `pnpm preview`.
 
+## Publish package
+
+1. Set new semantic version in package.json
+2. Create an new GitHub release. The package will be published to npm using a [GitHub action](.github/workflows/publish.yml).
