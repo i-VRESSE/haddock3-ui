@@ -5,7 +5,7 @@ import {
 	type ResidueNeighbourSelection,
 	type ResidueSelection,
 	ResiduesSelect,
-} from "../../src/toggles.js";
+} from "./toggles.js";
 
 export const Surface: Story = () => {
 	const { globalState } = useLadleContext();
@@ -256,7 +256,7 @@ export const LongList: Story = () => {
 		resno: i + 42,
 		...aa[i % 4]!,
 		surface: true,
-	}))
+	}));
 	return (
 		<ResiduesSelect
 			showActive={true}

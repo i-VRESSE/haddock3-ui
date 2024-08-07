@@ -27,12 +27,16 @@ We use [ladle](https://ladle.dev/) to develop components. To start the developme
 pnpm dev
 ```
 
-The components code is in `./src/` folder and the ladle stories are in `./stories/` folder.
-
 To lint use
 
 ```bash
 pnpm lint
+```
+
+To check types with Typescript use
+
+```bash
+pnpm typecheck
 ```
 
 To format use
@@ -41,23 +45,29 @@ To format use
 pnpm format
 ```
 
-## Build package
+Testing logic can be done with unit tests written with [vitest](https://vitest.dev).
 
-On build following steps are taken:
-1. Run tsc form `*.tsx?` generates `dist/*js` and `dist/*.d.ts` files
-2. Generate package.json with exports filled with each file tsc made
-3. Publish using generated package.json
+```bash
+pnpm test
+```
+
+Stories and tests can be located next to the code in the `src/` folder.
+If stories needs reusable helper code that should not be part of the package, then it can be placed in the `stories/` folder.
+
+## Build package
 
 ```bash
 pnpm build
 ```
 
-Writes js and dts files to `dist/` folder and regnerates exports in `package.json` file.
+Writes js, dts, sourcemap and declaration map files to `dist/` folder and regenerates exports in `package.json` file.
 
 ## Build documentation website
 
+For component stories & api documentation
+
 ```bash
-pnpm build:docs
+pnpm run docs
 ```
 
 Writes to `docs/` folder, which can be hosted on GitHub pages.

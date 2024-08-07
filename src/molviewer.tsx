@@ -20,6 +20,7 @@ import {
 	useMemo,
 	useState,
 } from "react";
+import type { Hetero } from "./Hetero.js";
 
 // TODO split in more files
 
@@ -35,7 +36,29 @@ function currentBackground() {
 
 const StageReactContext = createContext<Stage | undefined>(undefined);
 
-function useStage() {
+/**
+ * Hook that provides the current NGL stage.
+ *
+ * @example
+ * Should be used in child components of NGLStage
+ * ```tsx
+ * import { useStage, NGLStage } from "@i-vresse/haddock3-ui/molviewer";
+ *
+ * function Child() {
+ *   const stage = useStage();
+ *   return <div>{stage.parameters}</div>;
+ * }
+ *
+ * function Parent() {
+ *   return (
+ *     <NGLStage>
+ *         <ChildComponent />
+ *     </NGLStage>
+ *   );
+ * }
+ * ```
+ */
+export function useStage() {
 	const stage = useContext(StageReactContext);
 	if (!stage) {
 		throw new Error("useStage must be used within a StageProvider");
@@ -127,6 +150,31 @@ const NGLComponentContext = createContext<StructureComponent | undefined>(
 	undefined,
 );
 
+/**
+ * Hook that provides the current NGL structure component.
+ *
+ * @example
+ * Should be used in child components of NGLComponent
+ * ```tsx
+ * import { useComponent, NGLComponent, NGLStage } from "@i-vresse/haddock3-ui/molviewer";
+ *
+ * function Child() {
+ *   const component = useComponent();
+ *   return <div>{component.type}</div>;
+ * }
+ *
+ * async function Parent() {
+ *   const structure = new File(...);
+ *   return (
+ *     <NGLStage>
+ *       <NGLComponent structure={structure} chain="A">
+ *         <ChildComponent />
+ *       </NGLComponent>
+ *     </NGLStage>
+ *   );
+ * }
+ * ```
+ */
 export function useComponent() {
 	const component = useContext(NGLComponentContext);
 	if (!component) {
@@ -137,8 +185,12 @@ export function useComponent() {
 	return component;
 }
 
-// List from https://github.com/nglviewer/ngl/blob/5d64dbe6769448e0f33080e9ac957a70a0973a13/src/component/structure-component.ts#L52-L79
-const defaultRepresentationNames = new Set([
+/**
+ * Set of default representation names in NGL.
+ *
+ * List from https://github.com/nglviewer/ngl/blob/5d64dbe6769448e0f33080e9ac957a70a0973a13/src/component/structure-component.ts#L52-L79
+ */
+export const defaultRepresentationNames = new Set([
 	"angle",
 	"axes",
 	"backbone",
@@ -487,6 +539,9 @@ export function NGLSurface({
 	return null;
 }
 
+/**
+ * Component to render PDB file with NGL using its default representations.
+ */
 export function SimpleViewer({ structure }: { structure: File }) {
 	return (
 		<ErrorBoundary>
@@ -517,12 +572,22 @@ export function Viewer({
 	active: number[];
 	passive: number[];
 	surface: number[];
+	/**
+	 * Representation type to render the selection as.
+	 */
 	renderSelectionAs?: StructureRepresentationType;
+	/**
+	 * Computed neighbours of the active or passive residues.
+	 * Rendered similar to passive residues.
+	 */
 	neighbours?: number[];
 	higlightResidue?: number | undefined;
 	onPick?: (chain: string, residue: number) => void;
 	onHover?: (chain: string, residue: number) => void;
 	onMouseLeave?: () => void;
+	/**
+	 * Opacity of the active, passive and neighbours residues.
+	 */
 	selectionOpacity?: number;
 	theme?: "light" | "dark";
 }) {
@@ -594,14 +659,9 @@ export function Viewer({
 		</ErrorBoundary>
 	);
 }
-
-export interface Hetero {
-	resno: number;
-	resname: string;
-	chain: string;
-	description?: string;
-}
-
+/**
+ * Component that renders a ligand in PDB file.
+ */
 export function LigandViewer({
 	structure,
 	selected,
@@ -626,7 +686,7 @@ export function LigandViewer({
 		<>
 			{highlight && (
 				<NGLResidues
-					// @ts-ignore highlight truthy is checked 
+					// @ts-ignore highlight truthy is checked
 					residues={[parseInt(highlight.split("-")[2])]}
 					color={activeColor}
 					chain={highlight.split("-")[1]}

@@ -12,6 +12,7 @@ The [haddock3 web application](https://github.com/i-VRESSE/haddock3-webapp) had 
 
 - Components to render a 3D molecular structure from [PDB file](https://www.wwpdb.org/) using [NGL](https://nglviewer.org/)
 - Components to select residues in a molecule either passive or active
+- Components to handle files
 
 ## Installation
 
@@ -27,7 +28,7 @@ For your own webapp to pick up the classes in the components, you need to add th
 export default {
   content: [
     // Existing content goes here
-    './node_modules/@i-vresse/haddock3-ui/dist/index.js',
+    './node_modules/@i-vresse/haddock3-ui/dist/**/*.js',
   ],
   // Rest of the config goes here
 }
@@ -42,3 +43,5 @@ Once component is selected
 - interact with component
 - use `</>` button in footer to see the code.
 - use sliders icon button in footer to change props when available
+
+API documentation is available at [https://i-VRESSE.github.io/haddock3-ui/api/](https://i-VRESSE.github.io/haddock3-ui/api/)

@@ -18,11 +18,23 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"isolatedModules": true,
-		"verbatimModuleSyntax":true,
+		"verbatimModuleSyntax": true,
 		"noUncheckedIndexedAccess": true,
-    	"noImplicitOverride": true,
+		"noImplicitOverride": true,
 		"useDefineForClassFields": true
-
 	},
-	"include": ["src", "stories"]
+	"include": ["src", "stories"],
+	"typedocOptions": {
+		"entryPoints": ["src"],
+		"out": "docs/api",
+		"entryPointStrategy": "expand",
+		"name": "@i-vresse/haddock3-ui API documentation",
+		"includeVersion": true,
+		"navigationLinks": {
+			"Components": "/haddock3-ui",
+			"GitHub": "https://github.com/i-VRESSE/haddock3-ui"
+		},
+		"readme": "none",
+		"exclude": ["**/*.test.ts", "**/*.stories.tsx"]
+	}
 }

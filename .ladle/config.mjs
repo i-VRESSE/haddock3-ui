@@ -3,5 +3,11 @@ export default {
 	defaultStory: "index--readme",
 	outDir: "docs",
 	base: process.env.CI ? "/haddock3-ui/" : "/",
-	stories: "stories/**/*.stories.*",
+	stories: ["stories/**/*.stories.*", "src/**/*.stories.*"],
+	storyOrder: (stories) => {
+		return [
+			"index--readme",
+			...stories.filter((story) => story !== "index--readme"),
+		];
+	},
 };
