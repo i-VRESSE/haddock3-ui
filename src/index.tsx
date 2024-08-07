@@ -1,11 +1,16 @@
-import { ResiduesHeader } from "./toggles/ResidueHeader";
-import { type Variant, residueVariants } from "./toggles/variants";
-export { CopyToClipBoardIcon } from "./CopyToClipBoardIcon";
-export { NGLComponent, NGLResidues, NGLStage, SimpleViewer } from "./molviewer";
-export { PickIn3D, ResiduesSelect } from "./toggles";
-export { useChunked } from "./useChunked";
+import { ResiduesHeader } from "./toggles/ResidueHeader.js";
+import { type Variant, residueVariants } from "./toggles/variants.js";
+export { CopyToClipBoardIcon } from "./CopyToClipBoardIcon.js";
+export {
+	NGLComponent,
+	NGLResidues,
+	NGLStage,
+	SimpleViewer,
+} from "./molviewer.js";
+export { PickIn3D, ResiduesSelect } from "./toggles.js";
+export { useChunked } from "./useChunked.js";
 export { ResiduesHeader, residueVariants };
 export type { Variant };
-export { LinkToFile } from "./LinkToFile";
-export { HiddenFileInput } from "./HiddenFileInput";
-export { getResName1 } from "./getResName1";
+export { LinkToFile } from "./LinkToFile.js";
+export { HiddenFileInput } from "./HiddenFileInput.js";
+export { getResName1 } from "./getResName1.js";

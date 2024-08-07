@@ -1,9 +1,8 @@
 import { Story } from "@ladle/react";
-import { StructureRepresentationType } from "ngl";
-import React from "react";
+import { type StructureRepresentationType } from "ngl";
 
-import { NGLComponent, NGLResidues, NGLStage } from "../src/molviewer";
-import { structure } from "../src/structure";
+import { NGLComponent, NGLResidues, NGLStage } from "../src/molviewer.js";
+import { structure } from "./structure.js";
 
 function ResiduesViewer(props: Parameters<typeof NGLResidues>[0]) {
 	return (

@@ -1,7 +1,6 @@
 import { Story } from "@ladle/react";
-import React from "react";
 
-import { LinkToFile } from "../src/LinkToFile";
+import { LinkToFile } from "../src/LinkToFile.js";
 
 const file = new File(["Hello, world!"], "hello-world.txt", {
 	type: "text/plain",

@@ -1,7 +1,6 @@
 import { Story } from "@ladle/react";
-import React from "react";
 
-import { SimpleViewer } from "../src/molviewer";
-import { structure } from "../src/structure";
+import { SimpleViewer } from "../src/molviewer.js";
+import { structure } from "./structure.js";
 
 export const Default: Story = () => <SimpleViewer structure={structure} />;

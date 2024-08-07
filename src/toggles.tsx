@@ -7,9 +7,9 @@ import {
 	useState,
 } from "react";
 import { cn } from "./cn.js";
-import { ResiduesHeader } from "./toggles/ResidueHeader";
-import { Variant, residueVariants } from "./toggles/variants";
-import { useChunked } from "./useChunked";
+import { ResiduesHeader } from "./toggles/ResidueHeader.js";
+import { type Variant, residueVariants } from "./toggles/variants.js";
+import { useChunked } from "./useChunked.js";
 
 export function useResidueChangeHandler({
 	selected,

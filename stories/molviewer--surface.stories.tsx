@@ -1,9 +1,8 @@
-import React from "react";
 import { useState } from "react";
 
-import { NGLComponent, NGLStage, NGLSurface } from "../src/molviewer";
-import { structure } from "../src/structure";
-import { ActPass, PickIn3D } from "../src/toggles";
+import { NGLComponent, NGLStage, NGLSurface } from "../src/molviewer.js";
+import { type ActPass, PickIn3D } from "../src/toggles.js";
+import { structure } from "./structure.js";
 
 function SurfaceViewer(
 	props: Parameters<typeof NGLSurface>[0] &

@@ -1,4 +1,3 @@
-import React from "react";
 /**
  * Use me as a layout for your MDX files.
  *

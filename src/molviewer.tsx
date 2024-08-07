@@ -626,6 +626,7 @@ export function LigandViewer({
 		<>
 			{highlight && (
 				<NGLResidues
+					// @ts-ignore highlight truthy is checked 
 					residues={[parseInt(highlight.split("-")[2])]}
 					color={activeColor}
 					chain={highlight.split("-")[1]}
