@@ -318,3 +318,58 @@ export const ResnameAsLabel: Story = () => {
 		/>
 	);
 };
+
+export const ResnameOrSeqAsLabel: Story = () => {
+	const { globalState } = useLadleContext();
+	const [selected, setSelected] = useState<ResidueNeighbourSelection>({
+		act: [3],
+		pass: [1],
+		neighbours: [],
+	});
+
+	const onChange = (selected: ResidueSelection) => {
+		setSelected({
+			...selected,
+			neighbours: [],
+		});
+	};
+
+	return (
+		<ResiduesSelect
+			showActive={true}
+			showPassive={true}
+			highlight={undefined}
+			options={[
+				{
+					resno: 1,
+					resname: "A",
+					seq: "A",
+					surface: true,
+				},
+				{
+					resno: 2,
+					resname: "T",
+					seq: "T",
+					surface: true,
+				},
+				{
+					resno: 3,
+					resname: "IML",
+					seq: "X",
+					surface: true,
+				},
+				{
+					resno: 4,
+					resname: "IP1",
+					seq: "X",
+					surface: true,
+				},
+			]}
+			selected={selected}
+			onChange={onChange}
+			onHover={action("onHover")}
+			theme={globalState.theme === "dark" ? "dark" : "light"}
+		/>
+	);
+};
+// TODO align checkboxes vertically
