@@ -1,5 +1,5 @@
-import { cn } from "../cn";
-import { Variant, residueVariants } from "./variants";
+import { cn } from "../cn.js";
+import { type Variant, residueVariants } from "./variants.js";
 
 export function ResiduesHeader({
 	showActive,

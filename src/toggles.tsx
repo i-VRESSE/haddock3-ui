@@ -7,10 +7,13 @@ import {
 	useState,
 } from "react";
 import { cn } from "./cn.js";
-import { ResiduesHeader } from "./toggles/ResidueHeader";
-import { Variant, residueVariants } from "./toggles/variants";
-import { useChunked } from "./useChunked";
+import { ResiduesHeader } from "./toggles/ResidueHeader.js";
+import { type Variant, residueVariants } from "./toggles/variants.js";
+import { useChunked } from "./useChunked.js";
 
+/**
+ * Hook for handling residue selection change.
+ */
 export function useResidueChangeHandler({
 	selected,
 	options,
@@ -20,6 +23,13 @@ export function useResidueChangeHandler({
 	options: Residue[];
 	selected: ResidueSelection;
 	onChange: (selected: ResidueSelection) => void;
+	/**
+	 * The optional filter function to determine
+	 * if a residue should be included in a range selection.
+	 *
+	 * @param resno
+	 * @returns
+	 */
 	filter?: (resno: number) => boolean;
 }) {
 	const [lastChecked, setLastChecked] = useState<number | null>(null);
@@ -84,6 +94,12 @@ export function FormDescription({ children }: PropsWithChildren): JSX.Element {
 	return <p className="text-[0.8rem] text-muted-foreground">{children}</p>;
 }
 
+/**
+ * Renders a checkboxes component for a residue.
+ *
+ * This component is used to display a checkbox for a residue, allowing the user to toggle its active and passive states.
+ *
+ */
 export function ResidueCheckbox({
 	resno,
 	resname,
@@ -106,13 +122,22 @@ export function ResidueCheckbox({
 	seq: string;
 	showActive: boolean;
 	showPassive: boolean;
-	highlight: boolean; // External component wants us to highlight this residue
+	/**
+	 * External component wants us to highlight this residue.
+	 */
+	highlight: boolean;
 	activeChecked: boolean;
 	passiveChecked: boolean;
+	/**
+	 * If residue is selected as a neighbour the passive checkbox is checked.
+	 */
 	neighbourChecked: boolean;
 	activeDisabled: boolean;
 	passiveDisabled: boolean;
-	onHover: () => void; // We want external component to know we are hovering
+	/**
+	 * We want external component to know we are hovering
+	 */
+	onHover: () => void;
 	onActiveChange: (event: ChangeEvent<HTMLInputElement>) => void;
 	onPassiveChange: (event: ChangeEvent<HTMLInputElement>) => void;
 	theme: "light" | "dark";
@@ -287,8 +312,14 @@ export function ResiduesSelect({
 	);
 }
 
+/**
+ * Either active or passive.
+ */
 export type ActPass = "act" | "pass";
 
+/**
+ * Toggle to select if picking in 3D viewer should select active or passive residues.
+ */
 export function PickIn3D({
 	value,
 	onChange,

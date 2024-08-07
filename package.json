@@ -15,11 +15,15 @@
 	},
 	"scripts": {
 		"dev": "ladle serve",
-		"build": "tsc -b && vite build",
-		"build:docs": "ladle build",
+		"build": "tsc --project tsconfig.build.json && node build.mjs",
+		"typecheck": "tsc --noEmit",
+		"docs:ladle": "ladle build",
+		"docs:api": "typedoc",
+		"docs": "pnpm run docs:ladle && pnpm run docs:api",
 		"preview": "ladle preview",
 		"lint": "biome lint",
 		"format": "biome check --write",
+		"test": "vitest",
 		"prepublishOnly": "pnpm build"
 	},
 	"dependencies": {
@@ -44,29 +48,95 @@
 		"autoprefixer": "^10.4.19",
 		"postcss": "^8.4.40",
 		"tailwindcss": "^3.4.6",
-		"typescript": "^5.2.2",
+		"typedoc": "^0.26.5",
+		"typescript": "^5.5.4",
 		"vite": "^5.3.4",
-		"vite-plugin-dts": "^3.9.1"
+		"vite-plugin-dts": "^3.9.1",
+		"vitest": "^2.0.5"
 	},
-	"files": ["dist"],
-	"module": "dist/index.js",
-	"types": "./dist/src/index.d.ts",
+	"files": ["dist", "src"],
+	"module": "dist/ndex.js",
+	"types": "./dist/index.d.ts",
 	"exports": {
-		".": {
-			"module": "./dist/index.js",
+		"./CopyToClipBoardIcon": {
 			"import": {
-				"types": "./dist/src/index.d.ts",
-				"default": "./dist/index.js"
-			},
-			"default": "./dist/index.js"
+				"types": "./dist/CopyToClipBoardIcon.d.ts",
+				"default": "./dist/CopyToClipBoardIcon.js"
+			}
 		},
-		"./package.json": "./package.json"
+		"./Hetero": {
+			"import": {
+				"types": "./dist/Hetero.d.ts",
+				"default": "./dist/Hetero.js"
+			}
+		},
+		"./HiddenFileInput": {
+			"import": {
+				"types": "./dist/HiddenFileInput.d.ts",
+				"default": "./dist/HiddenFileInput.js"
+			}
+		},
+		"./LinkToFile": {
+			"import": {
+				"types": "./dist/LinkToFile.d.ts",
+				"default": "./dist/LinkToFile.js"
+			}
+		},
+		"./cn": {
+			"import": {
+				"types": "./dist/cn.d.ts",
+				"default": "./dist/cn.js"
+			}
+		},
+		"./getResName1": {
+			"import": {
+				"types": "./dist/getResName1.d.ts",
+				"default": "./dist/getResName1.js"
+			}
+		},
+		".": {
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
+		},
+		"./molviewer": {
+			"import": {
+				"types": "./dist/molviewer.d.ts",
+				"default": "./dist/molviewer.js"
+			}
+		},
+		"./toggles": {
+			"import": {
+				"types": "./dist/toggles.d.ts",
+				"default": "./dist/toggles.js"
+			}
+		},
+		"./useChunked": {
+			"import": {
+				"types": "./dist/useChunked.d.ts",
+				"default": "./dist/useChunked.js"
+			}
+		},
+		"./toggles/ResidueHeader": {
+			"import": {
+				"types": "./dist/toggles/ResidueHeader.d.ts",
+				"default": "./dist/toggles/ResidueHeader.js"
+			}
+		},
+		"./toggles/variants": {
+			"import": {
+				"types": "./dist/toggles/variants.d.ts",
+				"default": "./dist/toggles/variants.js"
+			}
+		}
 	},
 	"packageManager": "pnpm@9.6.0",
 	"publishConfig": {
 		"access": "public"
 	},
 	"engines": {
-		"node": ">=20"
+		"node": ">=20",
+		"pnpm": ">=9"
 	}
 }

@@ -4,6 +4,7 @@ export default {
 	content: [
 		"./index.html",
 		"./src/**/*.{js,ts,jsx,tsx,mdx}",
+		"./stories/**/*.tsx",
 		".ladle/components.tsx",
 	],
 	theme: {

@@ -1,5 +1,6 @@
 import { Story, action } from "@ladle/react";
-import { HiddenFileInput } from "./HiddenFileInput";
+
+import { HiddenFileInput } from "./HiddenFileInput.js";
 
 const file = new File(["Hello, world!"], "hello-world.txt", {
 	type: "text/plain",

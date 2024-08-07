@@ -1,5 +1,5 @@
-import { ReactNode, useEffect, useState } from "react";
-import { cn } from "./cn";
+import { type ReactNode, useEffect, useState } from "react";
+import { cn } from "./cn.js";
 
 // TODO allow other a tag attributes like title or target to be passed in
 

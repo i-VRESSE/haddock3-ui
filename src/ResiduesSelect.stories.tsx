@@ -1,10 +1,11 @@
 import { type Story, action, useLadleContext } from "@ladle/react";
 import { useState } from "react";
+
 import {
-	ResidueNeighbourSelection,
-	ResidueSelection,
+	type ResidueNeighbourSelection,
+	type ResidueSelection,
 	ResiduesSelect,
-} from "./toggles";
+} from "./toggles.js";
 
 export const Surface: Story = () => {
 	const { globalState } = useLadleContext();
@@ -251,6 +252,11 @@ export const LongList: Story = () => {
 		{ resname: "THR", seq: "T" },
 		{ resname: "CYS", seq: "C" },
 	];
+	const options = Array.from({ length: 400 }, (_, i) => ({
+		resno: i + 42,
+		...aa[i % 4]!,
+		surface: true,
+	}));
 	return (
 		<ResiduesSelect
 			showActive={true}
@@ -258,11 +264,7 @@ export const LongList: Story = () => {
 			disabledPassive={true}
 			disabledActive={true}
 			highlight={undefined}
-			options={Array.from({ length: 400 }, (_, i) => ({
-				resno: i + 42,
-				...aa[i % 4],
-				surface: true,
-			}))}
+			options={options}
 			selected={{
 				act: [43, 111],
 				pass: [51, 78],

@@ -1,11 +1,15 @@
-import { ResiduesHeader } from "./toggles/ResidueHeader";
-import { type Variant, residueVariants } from "./toggles/variants";
-export { CopyToClipBoardIcon } from "./CopyToClipBoardIcon";
-export { NGLComponent, NGLResidues, NGLStage, SimpleViewer } from "./molviewer";
-export { PickIn3D, ResiduesSelect } from "./toggles";
-export { useChunked } from "./useChunked";
-export { ResiduesHeader, residueVariants };
-export type { Variant };
-export { LinkToFile } from "./LinkToFile";
-export { HiddenFileInput } from "./HiddenFileInput";
-export { getResName1 } from "./getResName1";
+export {
+	NGLComponent,
+	NGLResidues,
+	NGLStage,
+	SimpleViewer,
+	LigandViewer,
+	Viewer,
+} from "./molviewer.js";
+export { PickIn3D, ResiduesSelect } from "./toggles.js";
+export { CopyToClipBoardIcon } from "./CopyToClipBoardIcon.js";
+export { LinkToFile } from "./LinkToFile.js";
+export { HiddenFileInput } from "./HiddenFileInput.js";
+// Other components and types can be imported using
+// for example
+// import { useChunked } from "@i-vresse/haddock3-ui/useChunked"

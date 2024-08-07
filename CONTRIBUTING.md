@@ -33,11 +33,26 @@ To lint use
 pnpm lint
 ```
 
+To check types with Typescript use
+
+```bash
+pnpm typecheck
+```
+
 To format use
 
 ```bash
 pnpm format
 ```
+
+Testing logic can be done with unit tests written with [vitest](https://vitest.dev).
+
+```bash
+pnpm test
+```
+
+Stories and tests can be located next to the code in the `src/` folder.
+If stories needs reusable helper code that should not be part of the package, then it can be placed in the `stories/` folder.
 
 ## Build package
 
@@ -45,12 +60,14 @@ pnpm format
 pnpm build
 ```
 
-Writes js and dts files to `dist/` folder.
+Writes js, dts, sourcemap and declaration map files to `dist/` folder and regenerates exports in `package.json` file.
 
 ## Build documentation website
 
+For component stories & api documentation
+
 ```bash
-pnpm build:docs
+pnpm run docs
 ```
 
 Writes to `docs/` folder, which can be hosted on GitHub pages.
