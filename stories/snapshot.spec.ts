@@ -10,14 +10,14 @@ const stories = fetch(`${url}/meta.json`).json().stories;
 
 // Stories that should not be ran on CI
 const skippedStories = [
-  // Because it does not contain any components
-  "index--readme",
+	// Because it does not contain any components
+	"index--readme",
 	// because it fetches PDB from rcsb.org
 	"molviewer--ligandviewer--default",
-  // Because does not render in headless mode
-  "molviewer--simpleviewer--default",
-  "molviewer--viewer--ball-stick",
-  "molviewer--viewer--default",
+	// Because does not render in headless mode
+	"molviewer--simpleviewer--default",
+	"molviewer--viewer--ball-stick",
+	"molviewer--viewer--default",
 ];
 
 // iterate through stories
