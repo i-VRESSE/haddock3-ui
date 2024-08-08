@@ -2,7 +2,9 @@ import { expect, test } from "@playwright/test";
 import fetch from "sync-fetch";
 
 // URL where Ladle is served
-const url = process.env.GITHUB_ACTIONS ? "http://localhost:8080/haddock3-ui/" : "http://localhost:8080";
+const url = process.env.GITHUB_ACTIONS
+	? "http://localhost:8080/haddock3-ui/"
+	: "http://localhost:8080";
 
 // fetch Ladle's meta file
 // https://ladle.dev/docs/meta
