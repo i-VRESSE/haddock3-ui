@@ -60,6 +60,13 @@ CI=1 pnpm test -- run --coverage --coverage.reporter=html
 Stories and tests can be located next to the code in the `src/` folder.
 If stories needs reusable helper code that should not be part of the package, then it can be placed in the `stories/` folder.
 
+The stories can be tested using [Visual Snapshots](https://ladle.dev/docs/visual-snapshots) with
+
+```bash
+pnpm playwright test stories/snapshot.spec.ts
+```
+(A new story will fail initially, but after snapshot (stories/snapshot.spec.ts-snapshots/*.png) is created it will pass.)
+
 ## Build package
 
 ```bash

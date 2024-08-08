@@ -26,10 +26,12 @@ jobs:
         run: pnpm install
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps chromium
-      - name: Test
+      - name: Test vitests
         run: pnpm test -- run --coverage --coverage.reporter=clover --reporter=github-actions
       - name: Code coverage upload
         uses: codecov/codecov-action@v4
         with:
           files: ./coverage/clover.xml
           use_oidc: true
+      - name: Test stories
+        run: pnpm playwright test stories/snapshot.spec.ts
