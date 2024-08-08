@@ -26,3 +26,6 @@ docs
 
 # Pack
 i-vresse-haddock3-ui-*.tgz
+
+# Test
+coverage

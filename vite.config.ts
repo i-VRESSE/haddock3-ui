@@ -13,5 +13,11 @@ export default defineConfig({
 			provider: "playwright",
 			providerOptions: {},
 		},
+		coverage: {
+			provider: "istanbul",
+			reporter: ["text"],
+			include: ["src/**/*"],
+			exclude: ["**/*.stories.*", "**/*.test.*"],
+		},
 	},
 });

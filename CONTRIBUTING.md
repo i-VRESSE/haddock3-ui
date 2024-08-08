@@ -48,10 +48,13 @@ pnpm format
 Testing logic can be done with tests written with [vitest](https://vitest.dev) in [browser mode](https://vitest.dev/guide/browser/).
 
 ```bash
-pnpm exec playwright install # Only needed once
+pnpm exec playwright install # Only needed once per installation
 pnpm test
 # Or to run headless
 CI=1 pnpm test
+# Or for coverage
+CI=1 pnpm test -- run --coverage --coverage.reporter=html
+# Open coverage/index.html in browser
 ```
 
 Stories and tests can be located next to the code in the `src/` folder.
