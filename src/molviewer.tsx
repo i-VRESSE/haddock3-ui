@@ -20,7 +20,7 @@ import {
 	useMemo,
 	useState,
 } from "react";
-import type { Hetero } from "./Hetero.js";
+import type { Hetero } from "./hetero.js";
 
 // TODO split in more files
 

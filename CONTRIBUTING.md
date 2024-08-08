@@ -45,10 +45,13 @@ To format use
 pnpm format
 ```
 
-Testing logic can be done with unit tests written with [vitest](https://vitest.dev).
+Testing logic can be done with tests written with [vitest](https://vitest.dev) in [browser mode](https://vitest.dev/guide/browser/).
 
 ```bash
+pnpm exec playwright install # Only needed once
 pnpm test
+# Or to run headless
+CI=1 pnpm test
 ```
 
 Stories and tests can be located next to the code in the `src/` folder.
