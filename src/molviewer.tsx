@@ -24,14 +24,22 @@ import type { Hetero } from "./Hetero.js";
 
 // TODO split in more files
 
-function currentBackground() {
-	let backgroundColor = "white";
+/**
+ * Determine the background color of the molecule viewer.
+ *
+ * If document has an element with a class `dark` or `light`, it will return 'black' and 'white' respectively.
+ * If prefers-color-scheme === dark, it will return 'black'.
+ * Otherwise, it will return 'white'.
+ */
+export function stageBackgroundColor(): "black" | "white" {
 	if (document?.getElementsByClassName("dark").length) {
-		backgroundColor = "black";
+		return "black";
+	} else if (document?.getElementsByClassName("light").length) {
+		return "white";
 	} else if (window?.matchMedia("(prefers-color-scheme: dark)").matches) {
-		backgroundColor = "black";
+		return "black";
 	}
-	return backgroundColor;
+	return "white";
 }
 
 const StageReactContext = createContext<Stage | undefined>(undefined);
@@ -334,7 +342,7 @@ export function NGLStage({
 
 	const stageElementRef: RefCallback<HTMLElement> = useCallback((element) => {
 		if (element) {
-			const backgroundColor = currentBackground();
+			const backgroundColor = stageBackgroundColor();
 			const currentStage = new Stage(element, { backgroundColor });
 			setStage(currentStage);
 		}
