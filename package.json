@@ -61,10 +61,7 @@
 		"vite-plugin-dts": "^3.9.1",
 		"vitest": "^2.0.5"
 	},
-	"files": [
-		"dist",
-		"src"
-	],
+	"files": ["dist", "src"],
 	"module": "dist/index.js",
 	"types": "./dist/index.d.ts",
 	"exports": {
@@ -102,6 +99,12 @@
 			"import": {
 				"types": "./dist/getResName1.d.ts",
 				"default": "./dist/getResName1.js"
+			}
+		},
+		"./hetero": {
+			"import": {
+				"types": "./dist/hetero.d.ts",
+				"default": "./dist/hetero.js"
 			}
 		},
 		".": {
