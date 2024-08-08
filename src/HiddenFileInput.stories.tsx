@@ -23,6 +23,6 @@ export const Default: Story = () => (
 		>
 			Submit
 		</button>
-		(See DevTools console or log of events below for form data)
+		<p>(After submit see DevTools console or log of events below for form data)</p>
 	</form>
 );
