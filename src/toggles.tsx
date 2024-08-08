@@ -166,7 +166,7 @@ export function ResidueCheckbox({
 		if (showActive && showPassive) {
 			className += " h-[4.5rem]";
 		} else if (showActive || showPassive) {
-			className += " h-[3.5rem]";
+			className += " h-[3rem]";
 		}
 	}
 	return (
