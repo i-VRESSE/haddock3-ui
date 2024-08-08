@@ -31,7 +31,7 @@ jobs:
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps chromium
       - name: Test vitests
-        run: pnpm test -- run --coverage --coverage.reporter=clover --reporter=github-actions
+        run: pnpm test -- run --coverage --coverage.reporter=clover
       - name: Code coverage upload
         uses: codecov/codecov-action@v4
         with:

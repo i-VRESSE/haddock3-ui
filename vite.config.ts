@@ -7,6 +7,7 @@ export default defineConfig({
 		open: false,
 	},
 	test: {
+		include: ["src/**/*.test.*"],
 		browser: {
 			enabled: true,
 			name: "chromium",
