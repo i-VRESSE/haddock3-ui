@@ -71,12 +71,6 @@
 				"default": "./dist/CopyToClipBoardIcon.js"
 			}
 		},
-		"./Hetero": {
-			"import": {
-				"types": "./dist/Hetero.d.ts",
-				"default": "./dist/Hetero.js"
-			}
-		},
 		"./HiddenFileInput": {
 			"import": {
 				"types": "./dist/HiddenFileInput.d.ts",
