@@ -48,6 +48,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.0
+      '@types/sync-fetch':
+        specifier: ^0.4.3
+        version: 0.4.3
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.15.0
         version: 7.17.0(@typescript-eslint/parser@7.17.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4)
@@ -893,6 +896,9 @@ packages:
 
   '@types/swagger-ui-dist@3.30.5':
     resolution: {integrity: sha512-SrXhD9L8qeIxJzN+o1kmf3wXeVf/+Km3jIdRM1+Yq3I5b/dlF5TcGr5WCVM7I/cBYpgf43/gCPIucQ13AhICiw==}
+
+  '@types/sync-fetch@0.4.3':
+    resolution: {integrity: sha512-RfwkmWFd7yi6tRaDcR7KNrxyp6LpO2oXrT6tYkXBLNfp4xf4EKRX7IlLexbtd5X26g34+G6HDD2pMhOZ5srUmQ==}
 
   '@types/tough-cookie@4.0.5':
     resolution: {integrity: sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==}
@@ -4459,6 +4465,10 @@ snapshots:
   '@types/statuses@2.0.5': {}
 
   '@types/swagger-ui-dist@3.30.5': {}
+
+  '@types/sync-fetch@0.4.3':
+    dependencies:
+      '@types/node-fetch': 2.6.11
 
   '@types/tough-cookie@4.0.5': {}
 

@@ -44,6 +44,7 @@
 		"@types/node": "^20.14.12",
 		"@types/react": "^18.3.3",
 		"@types/react-dom": "^18.3.0",
+		"@types/sync-fetch": "^0.4.3",
 		"@typescript-eslint/eslint-plugin": "^7.15.0",
 		"@typescript-eslint/parser": "^7.15.0",
 		"@vitejs/plugin-react": "^4.3.1",
@@ -60,7 +61,10 @@
 		"vite-plugin-dts": "^3.9.1",
 		"vitest": "^2.0.5"
 	},
-	"files": ["dist", "src"],
+	"files": [
+		"dist",
+		"src"
+	],
 	"module": "dist/index.js",
 	"types": "./dist/index.d.ts",
 	"exports": {
