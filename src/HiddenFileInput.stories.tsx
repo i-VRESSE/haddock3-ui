@@ -12,6 +12,7 @@ export const Default: Story = () => (
 			e.preventDefault();
 			const form = e.target as HTMLFormElement;
 			const formData = new FormData(form);
+			console.log("Form data:", formData);
 			action("submit")(formData);
 		}}
 	>
@@ -22,5 +23,6 @@ export const Default: Story = () => (
 		>
 			Submit
 		</button>
+		(See DevTools console or log of events below for form data)
 	</form>
 );
