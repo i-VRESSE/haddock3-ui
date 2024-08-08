@@ -37,5 +37,11 @@ jobs:
         with:
           files: ./coverage/clover.xml
           use_oidc: true
+      - name: Build docs
+        run: pnpm run docs
       - name: Test stories
-        run: pnpm playwright test stories/snapshot.spec.ts
+        run: |
+          # Run the preview server in the background
+          pnpm preview &
+          sleep 3
+          pnpm playwright test stories/snapshot.spec.ts

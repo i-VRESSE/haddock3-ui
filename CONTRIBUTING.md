@@ -63,6 +63,9 @@ If stories needs reusable helper code that should not be part of the package, th
 The stories can be tested using [Visual Snapshots](https://ladle.dev/docs/visual-snapshots) with
 
 ```bash
+pnpm run docs
+pnpm preview
+# In another shell
 pnpm playwright test stories/snapshot.spec.ts
 ```
 (A new story will fail initially, but after snapshot (stories/snapshot.spec.ts-snapshots/*.png) is created it will pass.)
