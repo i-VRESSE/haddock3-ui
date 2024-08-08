@@ -69,6 +69,7 @@ pnpm preview
 pnpm playwright test stories/snapshot.spec.ts
 ```
 (A new story will fail initially, but after snapshot (stories/snapshot.spec.ts-snapshots/*.png) is created it will pass.)
+(A updated component or story will fail, but after you update the snapshot it will pass.)
 
 ## Build package
 
