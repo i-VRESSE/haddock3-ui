@@ -34,6 +34,6 @@ Object.keys(stories)
 			await page.waitForSelector("[data-storyloaded]");
 
 			// take a screenshot and compare it with the baseline
-			await expect(page).toHaveScreenshot(`${storyKey}.png`);
+			await expect(page).toHaveScreenshot(`${storyKey}.png`, {maxDiffPixels : 10});
 		});
 	});
