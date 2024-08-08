@@ -7,6 +7,7 @@ export default {
 	storyOrder: (stories) => {
 		return [
 			"index--readme",
+			"apidocs--api-documentation",
 			...stories.filter((story) => story !== "index--readme"),
 		];
 	},
