@@ -18,7 +18,7 @@ import { useMemo } from "react";
  * ```
  */
 export function useChunked<T>(raw: T[], chunkSize: number) {
-	return useMemo(() => chunk<T>(raw, chunkSize), [raw, chunkSize]);
+  return useMemo(() => chunk<T>(raw, chunkSize), [raw, chunkSize]);
 }
 
 /**
@@ -32,17 +32,17 @@ export function useChunked<T>(raw: T[], chunkSize: number) {
 
  */
 export function chunk<T>(raw: T[], chunkSize: number) {
-	const initialArray: T[][] = [];
-	const chunks = raw.reduce((resultArray, item, index) => {
-		const chunkIndex = Math.floor(index / chunkSize);
+  const initialArray: T[][] = [];
+  const chunks = raw.reduce((resultArray, item, index) => {
+    const chunkIndex = Math.floor(index / chunkSize);
 
-		if (!resultArray[chunkIndex]) {
-			resultArray[chunkIndex] = []; // start a new chunk
-		}
+    if (!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = []; // start a new chunk
+    }
 
-		resultArray[chunkIndex].push(item);
+    resultArray[chunkIndex].push(item);
 
-		return resultArray;
-	}, initialArray);
-	return chunks;
+    return resultArray;
+  }, initialArray);
+  return chunks;
 }

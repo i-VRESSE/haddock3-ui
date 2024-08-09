@@ -1,10 +1,10 @@
 export {
-	NGLComponent,
-	NGLResidues,
-	NGLStage,
-	SimpleViewer,
-	LigandViewer,
-	Viewer,
+  NGLComponent,
+  NGLResidues,
+  NGLStage,
+  SimpleViewer,
+  LigandViewer,
+  Viewer,
 } from "./molviewer.js";
 export { PickIn3D, ResiduesSelect } from "./toggles.js";
 export { CopyToClipBoardIcon } from "./CopyToClipBoardIcon.js";

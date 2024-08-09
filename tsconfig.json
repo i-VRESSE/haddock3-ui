@@ -1,40 +1,40 @@
 {
-	"compilerOptions": {
-		"outDir": "dist",
-		"target": "ES2023",
-		"lib": ["ES2023", "DOM"],
-		"module": "NodeNext",
-		"declaration": true,
-		"sourceMap": true,
-		"declarationMap": true,
-		"esModuleInterop": true,
-		"moduleResolution": "NodeNext",
-		"moduleDetection": "force",
-		"forceConsistentCasingInFileNames": true,
-		"skipLibCheck": true,
-		"jsx": "react-jsx",
-		"strict": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true,
-		"isolatedModules": true,
-		"verbatimModuleSyntax": true,
-		"noUncheckedIndexedAccess": true,
-		"noImplicitOverride": true,
-		"useDefineForClassFields": true
-	},
-	"include": ["src", "stories"],
-	"typedocOptions": {
-		"entryPoints": ["src"],
-		"out": "docs/api",
-		"entryPointStrategy": "expand",
-		"name": "@i-vresse/haddock3-ui API documentation",
-		"includeVersion": true,
-		"navigationLinks": {
-			"Components": "/haddock3-ui",
-			"GitHub": "https://github.com/i-VRESSE/haddock3-ui"
-		},
-		"readme": "none",
-		"exclude": ["**/*.test.ts", "**/*.stories.tsx"]
-	}
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "ES2023",
+    "lib": ["ES2023", "DOM"],
+    "module": "NodeNext",
+    "declaration": true,
+    "sourceMap": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "moduleResolution": "NodeNext",
+    "moduleDetection": "force",
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "useDefineForClassFields": true
+  },
+  "include": ["src", "stories"],
+  "typedocOptions": {
+    "entryPoints": ["src"],
+    "out": "docs/api",
+    "entryPointStrategy": "expand",
+    "name": "@i-vresse/haddock3-ui API documentation",
+    "includeVersion": true,
+    "navigationLinks": {
+      "Components": "/haddock3-ui",
+      "GitHub": "https://github.com/i-VRESSE/haddock3-ui"
+    },
+    "readme": "none",
+    "exclude": ["**/*.test.ts", "**/*.stories.tsx"]
+  }
 }

@@ -1,149 +1,149 @@
 {
-	"name": "@i-vresse/haddock3-ui",
-	"version": "0.1.8",
-	"type": "module",
-	"private": false,
-	"sideEffects": false,
-	"license": "Apache-2.0",
-	"homepage": "https://github.com/i-VRESSE/haddock3-ui#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/i-VRESSE/haddock3-ui.git"
-	},
-	"bugs": {
-		"url": "https://github.com/i-VRESSE/haddock3-ui/issues"
-	},
-	"scripts": {
-		"dev": "ladle serve",
-		"build": "tsc --project tsconfig.build.json && node build.mjs && pnpm format package.json",
-		"typecheck": "tsc --noEmit",
-		"docs:ladle": "ladle build",
-		"docs:api": "typedoc",
-		"docs": "pnpm run docs:ladle && pnpm run docs:api",
-		"preview": "ladle preview",
-		"lint": "biome lint",
-		"format": "biome check --write",
-		"test": "vitest",
-		"prepublishOnly": "pnpm build"
-	},
-	"dependencies": {
-		"clsx": "^2.1.1",
-		"ngl": "^2.3.1",
-		"tailwind-merge": "^2.4.0"
-	},
-	"peerDependencies": {
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
-		"@ladle/react": "^4.1.0",
-		"@playwright/test": "^1.46.0",
-		"@tailwindcss/typography": "^0.5.13",
-		"@testing-library/react": "^16.0.0",
-		"@types/node": "^20.14.12",
-		"@types/react": "^18.3.3",
-		"@types/react-dom": "^18.3.0",
-		"@types/sync-fetch": "^0.4.3",
-		"@typescript-eslint/eslint-plugin": "^7.15.0",
-		"@typescript-eslint/parser": "^7.15.0",
-		"@vitejs/plugin-react": "^4.3.1",
-		"@vitest/browser": "^2.0.5",
-		"@vitest/coverage-istanbul": "^2.0.5",
-		"autoprefixer": "^10.4.19",
-		"playwright": "^1.46.0",
-		"postcss": "^8.4.40",
-		"sync-fetch": "^0.5.2",
-		"tailwindcss": "^3.4.6",
-		"typedoc": "^0.26.5",
-		"typescript": "^5.5.4",
-		"vite": "^5.3.4",
-		"vite-plugin-dts": "^3.9.1",
-		"vitest": "^2.0.5"
-	},
-	"files": ["dist", "src"],
-	"module": "dist/index.js",
-	"types": "./dist/index.d.ts",
-	"exports": {
-		"./CopyToClipBoardIcon": {
-			"import": {
-				"types": "./dist/CopyToClipBoardIcon.d.ts",
-				"default": "./dist/CopyToClipBoardIcon.js"
-			}
-		},
-		"./HiddenFileInput": {
-			"import": {
-				"types": "./dist/HiddenFileInput.d.ts",
-				"default": "./dist/HiddenFileInput.js"
-			}
-		},
-		"./LinkToFile": {
-			"import": {
-				"types": "./dist/LinkToFile.d.ts",
-				"default": "./dist/LinkToFile.js"
-			}
-		},
-		"./cn": {
-			"import": {
-				"types": "./dist/cn.d.ts",
-				"default": "./dist/cn.js"
-			}
-		},
-		"./getResName1": {
-			"import": {
-				"types": "./dist/getResName1.d.ts",
-				"default": "./dist/getResName1.js"
-			}
-		},
-		"./hetero": {
-			"import": {
-				"types": "./dist/hetero.d.ts",
-				"default": "./dist/hetero.js"
-			}
-		},
-		".": {
-			"import": {
-				"types": "./dist/index.d.ts",
-				"default": "./dist/index.js"
-			}
-		},
-		"./molviewer": {
-			"import": {
-				"types": "./dist/molviewer.d.ts",
-				"default": "./dist/molviewer.js"
-			}
-		},
-		"./toggles": {
-			"import": {
-				"types": "./dist/toggles.d.ts",
-				"default": "./dist/toggles.js"
-			}
-		},
-		"./useChunked": {
-			"import": {
-				"types": "./dist/useChunked.d.ts",
-				"default": "./dist/useChunked.js"
-			}
-		},
-		"./toggles/ResidueHeader": {
-			"import": {
-				"types": "./dist/toggles/ResidueHeader.d.ts",
-				"default": "./dist/toggles/ResidueHeader.js"
-			}
-		},
-		"./toggles/variants": {
-			"import": {
-				"types": "./dist/toggles/variants.d.ts",
-				"default": "./dist/toggles/variants.js"
-			}
-		}
-	},
-	"packageManager": "pnpm@9.6.0",
-	"publishConfig": {
-		"access": "public"
-	},
-	"engines": {
-		"node": ">=20",
-		"pnpm": ">=9"
-	}
+  "name": "@i-vresse/haddock3-ui",
+  "version": "0.1.8",
+  "type": "module",
+  "private": false,
+  "sideEffects": false,
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/i-VRESSE/haddock3-ui#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i-VRESSE/haddock3-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/i-VRESSE/haddock3-ui/issues"
+  },
+  "scripts": {
+    "dev": "ladle serve",
+    "build": "tsc --project tsconfig.build.json && node build.mjs && pnpm format package.json",
+    "typecheck": "tsc --noEmit",
+    "docs:ladle": "ladle build",
+    "docs:api": "typedoc",
+    "docs": "pnpm run docs:ladle && pnpm run docs:api",
+    "preview": "ladle preview",
+    "lint": "biome lint",
+    "format": "biome check --write",
+    "test": "vitest",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "ngl": "^2.3.1",
+    "tailwind-merge": "^2.4.0"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@ladle/react": "^4.1.0",
+    "@playwright/test": "^1.46.0",
+    "@tailwindcss/typography": "^0.5.13",
+    "@testing-library/react": "^16.0.0",
+    "@types/node": "^20.14.12",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/sync-fetch": "^0.4.3",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/browser": "^2.0.5",
+    "@vitest/coverage-istanbul": "^2.0.5",
+    "autoprefixer": "^10.4.19",
+    "playwright": "^1.46.0",
+    "postcss": "^8.4.40",
+    "sync-fetch": "^0.5.2",
+    "tailwindcss": "^3.4.6",
+    "typedoc": "^0.26.5",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.4",
+    "vite-plugin-dts": "^3.9.1",
+    "vitest": "^2.0.5"
+  },
+  "files": ["dist", "src"],
+  "module": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./CopyToClipBoardIcon": {
+      "import": {
+        "types": "./dist/CopyToClipBoardIcon.d.ts",
+        "default": "./dist/CopyToClipBoardIcon.js"
+      }
+    },
+    "./HiddenFileInput": {
+      "import": {
+        "types": "./dist/HiddenFileInput.d.ts",
+        "default": "./dist/HiddenFileInput.js"
+      }
+    },
+    "./LinkToFile": {
+      "import": {
+        "types": "./dist/LinkToFile.d.ts",
+        "default": "./dist/LinkToFile.js"
+      }
+    },
+    "./cn": {
+      "import": {
+        "types": "./dist/cn.d.ts",
+        "default": "./dist/cn.js"
+      }
+    },
+    "./getResName1": {
+      "import": {
+        "types": "./dist/getResName1.d.ts",
+        "default": "./dist/getResName1.js"
+      }
+    },
+    "./hetero": {
+      "import": {
+        "types": "./dist/hetero.d.ts",
+        "default": "./dist/hetero.js"
+      }
+    },
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./molviewer": {
+      "import": {
+        "types": "./dist/molviewer.d.ts",
+        "default": "./dist/molviewer.js"
+      }
+    },
+    "./toggles": {
+      "import": {
+        "types": "./dist/toggles.d.ts",
+        "default": "./dist/toggles.js"
+      }
+    },
+    "./useChunked": {
+      "import": {
+        "types": "./dist/useChunked.d.ts",
+        "default": "./dist/useChunked.js"
+      }
+    },
+    "./toggles/ResidueHeader": {
+      "import": {
+        "types": "./dist/toggles/ResidueHeader.d.ts",
+        "default": "./dist/toggles/ResidueHeader.js"
+      }
+    },
+    "./toggles/variants": {
+      "import": {
+        "types": "./dist/toggles/variants.d.ts",
+        "default": "./dist/toggles/variants.js"
+      }
+    }
+  },
+  "packageManager": "pnpm@9.6.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  }
 }

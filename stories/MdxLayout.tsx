@@ -9,9 +9,9 @@
  * ``
  */
 export function Layout({ children }: { children: React.ReactNode }) {
-	return (
-		<main className="prose dark:prose-invert prose-pre:bg-inherit">
-			{children}
-		</main>
-	);
+  return (
+    <main className="prose dark:prose-invert prose-pre:bg-inherit">
+      {children}
+    </main>
+  );
 }

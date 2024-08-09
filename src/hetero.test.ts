@@ -1,30 +1,30 @@
 import { describe, expect, test } from "vitest";
 
 import {
-	type Hetero,
-	hetGrep,
-	hetGrepFile,
-	heterosFromFile,
+  type Hetero,
+  hetGrep,
+  hetGrepFile,
+  heterosFromFile,
 } from "./hetero.js";
 
 describe("heterosFromFile()", () => {
-	test("returns hetero residues from a PDB file", async () => {
-		const file = new File([pdb8TRE_orig], "test.pdb");
-		const heteros = await heterosFromFile(file);
-		const expected: Hetero[] = [
-			{
-				chain: "A",
-				description: "ADENOSINE-5'-TRIPHOSPHATE",
-				resname: "ATP",
-				resno: 1001,
-			},
-		];
-		expect(heteros).toEqual(expected);
-	});
+  test("returns hetero residues from a PDB file", async () => {
+    const file = new File([pdb8TRE_orig], "test.pdb");
+    const heteros = await heterosFromFile(file);
+    const expected: Hetero[] = [
+      {
+        chain: "A",
+        description: "ADENOSINE-5'-TRIPHOSPHATE",
+        resname: "ATP",
+        resno: 1001,
+      },
+    ];
+    expect(heteros).toEqual(expected);
+  });
 
-	test("pdb with only HETATM and CONNECT record, should return hetero residues", async () => {
-		// biome-ignore format: should not have whitespace prepended
-		const pdb = `\
+  test("pdb with only HETATM and CONNECT record, should return hetero residues", async () => {
+    // biome-ignore format: should not have whitespace prepended
+    const pdb = `\
 REMARK 200 Generated with PyMOL and psico                                       
 HETATM    1  C1  G39 B 500     -30.374 -53.143   6.122  1.00 31.18      B    C  
 HETATM    2  O1A G39 B 500     -31.439 -52.533   5.850  1.00 30.30      B    O  
@@ -127,17 +127,17 @@ CONECT   43   17
 CONECT   44   19
 END
 `
-		const file = new File([pdb], "test.pdb");
-		const heteros = await heterosFromFile(file);
-		const expected: Hetero[] = [
-			{
-				chain: "B",
-				resname: "G39",
-				resno: 500,
-			},
-		];
-		expect(heteros).toEqual(expected);
-	});
+    const file = new File([pdb], "test.pdb");
+    const heteros = await heterosFromFile(file);
+    const expected: Hetero[] = [
+      {
+        chain: "B",
+        resname: "G39",
+        resno: 500,
+      },
+    ];
+    expect(heteros).toEqual(expected);
+  });
 });
 
 // biome-ignore format: should not have whitespace prepended
@@ -1330,22 +1330,22 @@ END
 `;
 
 describe("hetGrep()", () => {
-	test("should return pdb file with only ATP", () => {
-		const result = hetGrep(pdb8TRE_orig, "ATP", "A", 1001);
+  test("should return pdb file with only ATP", () => {
+    const result = hetGrep(pdb8TRE_orig, "ATP", "A", 1001);
 
-		expect(result).toBe(pdb8TRE_atp);
-	});
+    expect(result).toBe(pdb8TRE_atp);
+  });
 });
 
 describe("hetGrepFile()", () => {
-	test("should return pdb file with only ATP", async () => {
-		const file = new File([pdb8TRE_orig], "8TRE.pdb", { type: "text/plain" });
+  test("should return pdb file with only ATP", async () => {
+    const file = new File([pdb8TRE_orig], "8TRE.pdb", { type: "text/plain" });
 
-		const result = await hetGrepFile(file, "ATP", "A", 1001);
+    const result = await hetGrepFile(file, "ATP", "A", 1001);
 
-		const content = await result.text();
-		expect(content).toBe(pdb8TRE_atp);
-		expect(result.name).toBe("8TRE.pdb");
-		expect(result.type).toBe("text/plain");
-	});
+    const content = await result.text();
+    expect(content).toBe(pdb8TRE_atp);
+    expect(result.name).toBe("8TRE.pdb");
+    expect(result.type).toBe("text/plain");
+  });
 });
