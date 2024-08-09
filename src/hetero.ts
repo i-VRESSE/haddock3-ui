@@ -10,6 +10,24 @@ export interface Hetero {
   description?: string;
 }
 
+function getAllowedChains(structure: Structure) {
+  // NGL only shows first assembly, so we should exclude heteros from other assemblies
+  const assemblies = Object.entries(structure.biomolDict).map(
+    ([k, v]) =>
+      [k, v.partList.flatMap((p) => p.chainList)] as [string, string[]],
+  );
+  if (assemblies[0]) {
+    console.info(
+      `Found multiple assemblies: ${assemblies.map((a) => a[0])} using first for hetero listing`,
+    );
+    return assemblies[0][1];
+  }
+  // No assembly then return all chains
+  const allowedChains: string[] = [];
+  structure.eachChain((c) => allowedChains.push(c.chainname));
+  return allowedChains;
+}
+
 /**
  * Retrieve hetero residues from a PDB file.
  *
@@ -18,9 +36,15 @@ export interface Hetero {
  */
 export async function heterosFromFile(file: File): Promise<Hetero[]> {
   const structure: Structure = await autoLoad(file);
+  const allowedChains = getAllowedChains(structure);
   const heteros: Hetero[] = [];
   structure.eachResidue((r) => {
-    if (r.isHetero() && !r.isWater() && !r.isIon()) {
+    if (
+      r.isHetero() &&
+      !r.isWater() &&
+      !r.isIon() &&
+      allowedChains.includes(r.chain.chainname)
+    ) {
       const hetero: Hetero = {
         resno: r.resno,
         resname: r.resname,

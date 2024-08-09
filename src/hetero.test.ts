@@ -1,3 +1,4 @@
+import { server } from "@vitest/browser/context";
 import { describe, expect, test } from "vitest";
 
 import {
@@ -134,6 +135,22 @@ END
         chain: "B",
         resname: "G39",
         resno: 500,
+      },
+    ];
+    expect(heteros).toEqual(expected);
+  });
+
+  test("4o8j should have ADN on chain A only", async () => {
+    // Other heteros are on chain B which are in second assembly and should be skipped.
+    const body = await server.commands.readFile("../stories/assets/4o8j.pdb");
+    const file = new File([body], "4o8j.pdb", { type: "text/plain" });
+    const heteros = await heterosFromFile(file);
+    const expected: Hetero[] = [
+      {
+        chain: "A",
+        resname: "ADN",
+        description: "ADENOSINE",
+        resno: 401,
       },
     ];
     expect(heteros).toEqual(expected);
