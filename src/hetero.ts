@@ -32,7 +32,7 @@ function getAllowedChains(structure: Structure) {
  * Retrieve hetero residues from a PDB file.
  *
  * Only heteros from first assembly are returned.
- * 
+ *
  * @param file PDB file to read from
  * @returns List of hetero residues
  */
