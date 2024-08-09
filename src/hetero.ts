@@ -14,7 +14,7 @@ export interface Hetero {
  * Retrieve hetero residues from a PDB file.
  *
  * @param file PDB file to read from
- * @returns
+ * @returns List of hetero residues
  */
 export async function heterosFromFile(file: File): Promise<Hetero[]> {
   const structure: Structure = await autoLoad(file);
@@ -44,6 +44,15 @@ export async function heterosFromFile(file: File): Promise<Hetero[]> {
   return heteros;
 }
 
+/**
+ * Filters and extracts specific lines from a PDB file based on the given criteria.
+ *
+ * @param pdb - The PDB file content.
+ * @param hetUnpadded - Name of hetero residues to keep. For example ATP.
+ * @param chain - The chain identifier of the hetero residue to keep.
+ * @param sequenceNr - The sequence number of the hetero residue to keep.
+ * @returns The filtered lines from the PDB file.
+ */
 export function hetGrep(
   pdb: string,
   hetUnpadded: string,
@@ -87,6 +96,15 @@ export function hetGrep(
   return result.join("\n") + "\n";
 }
 
+/**
+ * Filters and extracts specific lines from a PDB file based on the given criteria.
+ *
+ * @param pdb - The PDB file.
+ * @param hetUnpadded - Name of hetero residues to keep. For example ATP.
+ * @param chain - The chain identifier of the hetero residue to keep.
+ * @param sequenceNr - The sequence number of the hetero residue to keep.
+ * @returns
+ */
 export async function hetGrepFile(
   file: File,
   hetUnpadded: string,
