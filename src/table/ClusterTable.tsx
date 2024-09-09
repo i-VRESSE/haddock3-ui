@@ -1,4 +1,5 @@
-import { DataItem, Header, SortableTable } from "./SortableTable";
+import { SortableTable } from "./SortableTable.js";
+import type { DataItem, Header } from "./SortableTable.js";
 
 export interface Cluster extends DataItem {
   rank: number;

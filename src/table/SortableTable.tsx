@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import "./SortableTable.css";
+// import "./SortableTable.css";
+import { DialogViewer } from "../DialogViewer.js";
 
 export type SortDirection = "asc" | "desc";
 
@@ -58,7 +59,7 @@ function HeaderContent({
   };
   if (header.key === sortState.key) {
     icon = icons[orientation][sortState.direction];
-    thProps.className += " sortable sorted";
+    thProps.className += " cursor-pointer";
     thProps.onClick = () =>
       setSortState({
         key: header.key,
@@ -84,11 +85,9 @@ function HeaderContent({
 function CellContent({
   data,
   header,
-  onView,
 }: {
   data: DataItem;
   header: Header;
-  onView: (href: string) => void;
 }) {
   const cell = data[header.key];
   const header2 = { ...defaultHeader, ...header };
@@ -111,16 +110,17 @@ function CellContent({
     const href = cell;
     const filename = href.split("/").pop();
     return (
-      <span>
-        &#8595;&nbsp;
-        <a href={cell} download={filename}>
-          Download
+      <div>
+        <a href={cell} download={filename} className="hover:underline">
+        &#8595;&nbsp;Download
         </a>
-        &nbsp;&#x1F441;&nbsp;
-        <a onClick={() => onView(href)} style={{ cursor: "pointer" }}>
-          View
-        </a>
-      </span>
+        <DialogViewer 
+          url={href} 
+          labelTrigger="&#x1F441;&nbsp;View"
+          // TODO make className configurable from outside
+          classNameTrigger="text-inherit bg-inherit inline-block rounded-none h-auto"
+        />
+      </div>
     );
   }
   return <>{cell}</>;
@@ -157,7 +157,7 @@ export function SortableTable({
 }) {
   const initialSortedHeader = headers.find((h) => h.sorted !== undefined);
   // use the first header if no header is sorted as key for a data item
-  const itemKey = (initialSortedHeader ?? headers[0]).key;
+  const itemKey = (initialSortedHeader ?? headers[0]!).key;
 
   const [sortState, setSortState] = useState<SortState>(() => {
     if (initialSortedHeader && initialSortedHeader.sorted !== undefined) {
@@ -188,8 +188,8 @@ export function SortableTable({
       return content;
     };
     return [...data].sort((a, b) => {
-      const valueA = getValue(a[sortState.key]);
-      const valueB = getValue(b[sortState.key]);
+      const valueA = getValue(a[sortState.key]!);
+      const valueB = getValue(b[sortState.key]!);
 
       if (valueA < valueB) {
         return sortState.direction === "asc" ? -1 : 1;
@@ -200,9 +200,6 @@ export function SortableTable({
       return 0;
     });
   }, [data, sortState, headers]);
-
-  const [activeStructure, setActiveStructure] = useState("");
-
   if (orientation === "top") {
     return (
       <div className={className}>
@@ -231,7 +228,6 @@ export function SortableTable({
                     <CellContent
                       data={row}
                       header={header}
-                      onView={setActiveStructure}
                     />
                   </td>
                 ))}
@@ -239,7 +235,6 @@ export function SortableTable({
             ))}
           </tbody>
         </table>
-        <NglViewer activeStructure={activeStructure} />
       </div>
     );
   } else {
@@ -265,7 +260,6 @@ export function SortableTable({
                     <CellContent
                       data={col}
                       header={header}
-                      onView={setActiveStructure}
                     />
                   </td>
                 ))}
@@ -273,7 +267,6 @@ export function SortableTable({
             ))}
           </tbody>
         </table>
-        <NglViewer activeStructure={activeStructure} />
       </div>
     );
   }

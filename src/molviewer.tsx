@@ -235,7 +235,7 @@ export function NGLComponent({
   opacity = 1.0,
   children,
 }: {
-  structure: File;
+  structure: File | string;
   chain: string;
   opacity?: number;
   children?: ReactNode;
@@ -247,7 +247,8 @@ export function NGLComponent({
 
   useEffect(() => {
     async function loadStructure() {
-      stage.getComponentsByName(structure.name).dispose();
+      const name = typeof structure === "string" ? structure : structure.name;
+      stage.getComponentsByName(name).dispose();
       const newComponent = await stage.loadFile(structure);
       if (!newComponent) {
         return;
@@ -258,7 +259,8 @@ export function NGLComponent({
     }
     loadStructure();
     return () => {
-      stage.getComponentsByName(structure.name).dispose();
+      const name = typeof structure === "string" ? structure : structure.name;
+      stage.getComponentsByName(name).dispose();
     };
   }, [stage, structure]);
 
@@ -416,7 +418,7 @@ export function NGLStage({
       <div ref={stageElementRef} className="h-full w-full "></div>
       {stage && (
         <>
-          <div className="absolute right-2 top-2 z-10">
+          <div className="absolute right-4 top-2 z-10">
             <span
               title="Center all"
               className="h-5 w-5 cursor-pointer"
@@ -550,7 +552,7 @@ export function NGLSurface({
 /**
  * Component to render PDB file with NGL using its default representations.
  */
-export function SimpleViewer({ structure }: { structure: File }) {
+export function SimpleViewer({ structure }: { structure: File | string }) {
   return (
     <ErrorBoundary>
       <NGLStage>
