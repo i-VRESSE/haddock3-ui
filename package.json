@@ -71,6 +71,12 @@
         "default": "./dist/CopyToClipBoardIcon.js"
       }
     },
+    "./DialogViewer": {
+      "import": {
+        "types": "./dist/DialogViewer.d.ts",
+        "default": "./dist/DialogViewer.js"
+      }
+    },
     "./HiddenFileInput": {
       "import": {
         "types": "./dist/HiddenFileInput.d.ts",
@@ -81,6 +87,12 @@
       "import": {
         "types": "./dist/LinkToFile.d.ts",
         "default": "./dist/LinkToFile.js"
+      }
+    },
+    "./MdxLayout": {
+      "import": {
+        "types": "./dist/MdxLayout.d.ts",
+        "default": "./dist/MdxLayout.js"
       }
     },
     "./cn": {
@@ -113,6 +125,12 @@
         "default": "./dist/molviewer.js"
       }
     },
+    "./structure": {
+      "import": {
+        "types": "./dist/structure.d.ts",
+        "default": "./dist/structure.js"
+      }
+    },
     "./toggles": {
       "import": {
         "types": "./dist/toggles.d.ts",
@@ -135,6 +153,24 @@
       "import": {
         "types": "./dist/toggles/variants.d.ts",
         "default": "./dist/toggles/variants.js"
+      }
+    },
+    "./table/ClusterTable": {
+      "import": {
+        "types": "./dist/table/ClusterTable.d.ts",
+        "default": "./dist/table/ClusterTable.js"
+      }
+    },
+    "./table/SortableTable": {
+      "import": {
+        "types": "./dist/table/SortableTable.d.ts",
+        "default": "./dist/table/SortableTable.js"
+      }
+    },
+    "./table/StructureTable": {
+      "import": {
+        "types": "./dist/table/StructureTable.d.ts",
+        "default": "./dist/table/StructureTable.js"
       }
     }
   },

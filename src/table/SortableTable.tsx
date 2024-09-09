@@ -112,10 +112,10 @@ function CellContent({
     return (
       <div>
         <a href={cell} download={filename} className="hover:underline">
-        &#8595;&nbsp;Download
+          &#8595;&nbsp;Download
         </a>
-        <DialogViewer 
-          url={href} 
+        <DialogViewer
+          url={href}
           labelTrigger="&#x1F441;&nbsp;View"
           // TODO make className configurable from outside
           classNameTrigger="text-inherit bg-inherit inline-block rounded-none h-auto"
@@ -225,10 +225,7 @@ export function SortableTable({
                     key={`${itemKeyFinder(row, itemKey)}-${header.key}`}
                     className="table-cell"
                   >
-                    <CellContent
-                      data={row}
-                      header={header}
-                    />
+                    <CellContent data={row} header={header} />
                   </td>
                 ))}
               </tr>
@@ -257,10 +254,7 @@ export function SortableTable({
                     key={`${itemKeyFinder(col, itemKey)}-${header.key}`}
                     className="table-cell"
                   >
-                    <CellContent
-                      data={col}
-                      header={header}
-                    />
+                    <CellContent data={col} header={header} />
                   </td>
                 ))}
               </tr>
