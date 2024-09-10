@@ -13,22 +13,7 @@
     <script type="module">
       import { createRoot } from "https://esm.sh/react-dom";
       import { createElement } from "https://esm.sh/react";
-      // Fails on view molecule, React is not defined
-      import { ClusterTable } from "https://esm.sh/@i-vresse/haddock3-ui/dist/table/ClusterTable";
-      // Fails on view molecule, React is not defined
-      //import { ClusterTable } from "https://esm.sh/@i-vresse/haddock3-ui/dist/table/ClusterTable?bundle-deps";
-      // Fails on useState<SortState> bad hook
-      //import { ClusterTable } from "https://esm.sh/@i-vresse/haddock3-ui/dist/table/ClusterTable?dev";
-      // Failed with
-      // Uncaught SyntaxError: The requested module 'https://esm.run/@i-vresse/haddock3-ui/dist/table/ClusterTable' does not provide an export named 'ClusterTable' (at example.html:22:16)
-      // 'Failed to bundle using Rollup v2.79.1: failed to resolve an internal import. If you believe this to be an issue with jsDelivr, and not with the package itself, please open an issue at https://github.com/jsdelivr/jsdelivr');
-      //import { ClusterTable } from "https://esm.run/@i-vresse/haddock3-ui@0.2.0/dist/table/ClusterTable"
-      // Failed with
-      // TypeError: Cannot read properties of null (reading 'useState')
-      //   at n.useState (react.production.min.js:26:234)
-      //   at T (SortableTable.tsx:227:37)
-      // import { ClusterTable } from "https://esm.noim.io/@i-vresse/haddock3-ui@0.2.0/dist/table/ClusterTable"
-
+      import { ClusterTable } from "https://esm.sh/@i-vresse/haddock3-ui/dist/table/ClusterTable?bundle-deps";
 
       const clusters = [
         {
