@@ -155,29 +155,36 @@ const getValue = (header: Header, content: Stats | number | string) => {
   return content;
 };
 
+/**
+ * Sorts the provided data array based on the given sort state and headers.
+ *
+ * @param data - The array of data items to be sorted.
+ * @param sortState - The current state of sorting, including the key to sort by and the direction.
+ * @param headers - The array of headers which includes metadata about each column.
+ * @returns A new array of data items sorted according to the sort state and headers.
+ */
 export function sortData(
   data: DataItem[],
   sortState: SortState,
   headers: Header[],
 ) {
   const header = headers.find((h) => h.key === sortState.key);
-    if (header === undefined) {
-      return data;
+  if (header === undefined) {
+    return data;
+  }
+  return data.toSorted((a, b) => {
+    const valueA = getValue(header, a[sortState.key]!);
+    const valueB = getValue(header, b[sortState.key]!);
+
+    if (valueA < valueB) {
+      return sortState.direction === "asc" ? -1 : 1;
     }
-    return [...data].sort((a, b) => {
-      const valueA = getValue(header, a[sortState.key]!);
-      const valueB = getValue(header, b[sortState.key]!);
-
-      if (valueA < valueB) {
-        return sortState.direction === "asc" ? -1 : 1;
-      }
-      if (valueA > valueB) {
-        return sortState.direction === "asc" ? 1 : -1;
-      }
-      return 0;
-    });
+    if (valueA > valueB) {
+      return sortState.direction === "asc" ? 1 : -1;
+    }
+    return 0;
+  });
 }
-
 
 export function itemKeyFinder(item: DataItem, itemKey: string) {
   const value = item[itemKey];
@@ -231,7 +238,7 @@ export function SortableTable({
   });
 
   const sortedData = useMemo(() => {
-    return sortData(data, sortState, headers)
+    return sortData(data, sortState, headers);
   }, [data, sortState, headers]);
   if (orientation === "top") {
     return (

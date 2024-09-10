@@ -48,6 +48,7 @@ pnpm format
 Testing logic can be done with tests written with [vitest](https://vitest.dev) in [browser mode](https://vitest.dev/guide/browser/).
 
 ```bash
+pnpm exec playwright install # Only needed once per installation
 pnpm test
 # Or to run headless
 CI=1 pnpm test
@@ -62,7 +63,6 @@ If stories needs reusable helper code that should not be part of the package, th
 The stories can be tested using [Visual Snapshots](https://ladle.dev/docs/visual-snapshots) with
 
 ```bash
-pnpm exec playwright install # Only needed once per installation
 pnpm run docs
 pnpm preview
 # In another shell
