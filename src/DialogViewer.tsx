@@ -45,7 +45,13 @@ export function DialogViewer({
       >
         {labelTrigger}
       </button>
-      <dialog open={dialogOpen} className={cn("w-3/4 h-3/4 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 drop-shadow-xl", classNameDialog)}>
+      <dialog
+        open={dialogOpen}
+        className={cn(
+          "w-3/4 h-3/4 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 drop-shadow-xl",
+          classNameDialog,
+        )}
+      >
         <div className="w-full flex flex-row justify-between items-center">
           <a
             className={cn("hover:underline m-2", classNameTitle)}
