@@ -48,7 +48,6 @@ pnpm format
 Testing logic can be done with tests written with [vitest](https://vitest.dev) in [browser mode](https://vitest.dev/guide/browser/).
 
 ```bash
-pnpm exec playwright install # Only needed once per installation
 pnpm test
 # Or to run headless
 CI=1 pnpm test
@@ -63,6 +62,7 @@ If stories needs reusable helper code that should not be part of the package, th
 The stories can be tested using [Visual Snapshots](https://ladle.dev/docs/visual-snapshots) with
 
 ```bash
+pnpm exec playwright install # Only needed once per installation
 pnpm run docs
 pnpm preview
 # In another shell
@@ -70,6 +70,9 @@ pnpm playwright test stories/snapshot.spec.ts
 ```
 (A new story will fail initially, but after snapshot (stories/snapshot.spec.ts-snapshots/*.png) is created it will pass.)
 (A updated component or story will fail, but after you update the snapshot it will pass.)
+
+> Note: The visual snapshots are different between machines, 
+> tests will mostly fail if not run on the same machine as where expected snapshots where made.
 
 ## Build package
 
