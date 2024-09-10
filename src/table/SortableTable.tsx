@@ -137,14 +137,49 @@ function CellContent({
   return <>{cell}</>;
 }
 
-interface SortState {
+export interface SortState {
   key: string;
   direction: SortDirection;
 }
 
 type Orientation = "top" | "left";
 
-function itemKeyFinder(item: DataItem, itemKey: string) {
+const getValue = (header: Header, content: Stats | number | string) => {
+  if (
+    header.type === "stats" &&
+    content != null &&
+    typeof content === "object"
+  ) {
+    return content.mean;
+  }
+  return content;
+};
+
+export function sortData(
+  data: DataItem[],
+  sortState: SortState,
+  headers: Header[],
+) {
+  const header = headers.find((h) => h.key === sortState.key);
+    if (header === undefined) {
+      return data;
+    }
+    return [...data].sort((a, b) => {
+      const valueA = getValue(header, a[sortState.key]!);
+      const valueB = getValue(header, b[sortState.key]!);
+
+      if (valueA < valueB) {
+        return sortState.direction === "asc" ? -1 : 1;
+      }
+      if (valueA > valueB) {
+        return sortState.direction === "asc" ? 1 : -1;
+      }
+      return 0;
+    });
+}
+
+
+export function itemKeyFinder(item: DataItem, itemKey: string) {
   const value = item[itemKey];
   if (value === null || value === undefined) {
     return "NA";
@@ -196,32 +231,7 @@ export function SortableTable({
   });
 
   const sortedData = useMemo(() => {
-    const header = headers.find((h) => h.key === sortState.key);
-    if (header === undefined) {
-      return data;
-    }
-    const getValue = (content: Stats | number | string) => {
-      if (
-        header.type === "stats" &&
-        content != null &&
-        typeof content === "object"
-      ) {
-        return content.mean;
-      }
-      return content;
-    };
-    return [...data].sort((a, b) => {
-      const valueA = getValue(a[sortState.key]!);
-      const valueB = getValue(b[sortState.key]!);
-
-      if (valueA < valueB) {
-        return sortState.direction === "asc" ? -1 : 1;
-      }
-      if (valueA > valueB) {
-        return sortState.direction === "asc" ? 1 : -1;
-      }
-      return 0;
-    });
+    return sortData(data, sortState, headers)
   }, [data, sortState, headers]);
   if (orientation === "top") {
     return (
