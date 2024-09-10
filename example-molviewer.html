@@ -2,14 +2,13 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Haddock3 ui components - ClusterTable example</title>
+    <title>Haddock3 ui components - SimpleViewer example</title>
     <link
       href="https://esm.sh/@i-vresse/haddock3-ui/dist/index.css"
       rel="stylesheet"
     />
   </head>
   <body>
-    <div id="root"></div>
     <script type="importmap">
       {
         "imports": {
@@ -21,27 +20,13 @@
     <script type="module">
       import { createRoot } from "react-dom";
       import { createElement } from "react";
-      import { SimpleViewer } from "https://esm.sh/@i-vresse/haddock3-ui/dist/molviewer";
-      //import { SimpleViewer } from "https://esm.run/@i-vresse/haddock3-ui/dist/molviewer";
+      import { SimpleViewer } from "https://esm.sh/@i-vresse/haddock3-ui/dist/molviewer?bundle-deps";
 
-      createRoot(document.getElementById("root")).render(
-        createElement(SimpleViewer, { "structure": "https://files.rcsb.org/download/2OOA.pdb.gz" })
+      createRoot(document.getElementById("viewport")).render(
+        createElement(SimpleViewer, { "structure": "https://files.rcsb.org/download/2OOB.pdb.gz" })
       );
 
-      //import { Stage } from "https://esm.run/ngl";
-      //import { Stage } from "https://esm.sh/ngl";
-//      import three from "https://cdn.jsdelivr.net/npm/three/build/three.module.js";
-      //import { Stage } from "https://unpkg.com/ngl/dist/ngl.esm.js";
-
-//      var stage = new Stage("viewport");
-// load a PDB structure and consume the returned `Promise`
-//stage.loadFile("rcsb://1CRN").then(function (component) {
-  // add a "cartoon" representation to the structure component
-//  component.addRepresentation("cartoon");
-  // provide a "good" view of the structure
-//  component.autoView();
-//});
     </script>
-    <div id="viewport" style="width:400px; height:300px;"></div>
+    <div id="viewport" style="width:800px; height:600px;"></div>
   </body>
 </html>
