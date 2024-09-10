@@ -23,9 +23,9 @@ export function DialogViewer({
 }) {
   const [dialogOpen, setDialogOpen] = useState(false);
   const fileName = url.split("/").pop();
-  let dialogContent = null;
+  let dialogBody = null;
   if (dialogOpen) {
-    dialogContent = children ?? <SimpleViewer structure={url} />;
+    dialogBody = children ?? <SimpleViewer structure={url} />;
   }
   // TODO close dialog on escape key or click outside
   return (
@@ -45,7 +45,7 @@ export function DialogViewer({
       >
         {labelTrigger}
       </button>
-      <dialog open={dialogOpen} className={cn("w-3/4 h-3/4", classNameDialog)}>
+      <dialog open={dialogOpen} className={cn("w-3/4 h-3/4 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 drop-shadow-xl", classNameDialog)}>
         <div className="w-full flex flex-row justify-between items-center">
           <a
             className={cn("hover:underline m-2", classNameTitle)}
@@ -71,7 +71,7 @@ export function DialogViewer({
             {labelClose}
           </button>
         </div>
-        {dialogContent}
+        {dialogBody}
       </dialog>
     </div>
   );
