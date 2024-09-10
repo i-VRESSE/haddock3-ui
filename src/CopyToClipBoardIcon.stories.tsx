@@ -1,5 +1,5 @@
 import type { Story } from "@ladle/react";
 
-import { CopyToClipBoardIcon } from "../src/CopyToClipBoardIcon.js";
+import { CopyToClipBoardIcon } from "./CopyToClipBoardIcon.js";
 
 export const Default: Story = () => <CopyToClipBoardIcon />;

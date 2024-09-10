@@ -1,6 +1,6 @@
 import { type ReactNode, useState } from "react";
-import { cn } from "../src/cn.js";
-import { SimpleViewer } from "../src/molviewer.js";
+import { cn } from "./cn.js";
+import { SimpleViewer } from "./molviewer.js";
 
 export function DialogViewer({
   url,
