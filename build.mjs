@@ -9,9 +9,9 @@ const packageJson = JSON.parse(content);
 // Overwrite the "exports" field with the new configuration
 packageJson.exports = {
   "./dist/index.css": {
-      "import": "./dist/index.css",
-      "require": "./dist/index.css"
-    }
+    import: "./dist/index.css",
+    require: "./dist/index.css",
+  },
 };
 for (const file of await readdir("dist", { recursive: true })) {
   if (!file.endsWith(".js")) {
