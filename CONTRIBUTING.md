@@ -71,6 +71,9 @@ pnpm playwright test stories/snapshot.spec.ts
 (A new story will fail initially, but after snapshot (stories/snapshot.spec.ts-snapshots/*.png) is created it will pass.)
 (A updated component or story will fail, but after you update the snapshot it will pass.)
 
+> Note: The visual snapshots are different between machines, 
+> tests will mostly fail if not run on the same machine as where expected snapshots where made.
+
 ## Build package
 
 ```bash

@@ -18,6 +18,7 @@ const skippedStories = [
   "molviewer--ligandviewer--default",
   // Because does not render in headless mode
   "molviewer--simpleviewer--default",
+  "molviewer--simpleviewer--custom",
   "molviewer--viewer--ball-stick",
   "molviewer--viewer--default",
 ];

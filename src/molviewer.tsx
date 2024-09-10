@@ -231,14 +231,16 @@ export const defaultRepresentationNames = new Set([
 
 export function NGLComponent({
   structure,
-  chain,
+  chain = "",
   opacity = 1.0,
   children,
+  defaultRepresentation = true,
 }: {
-  structure: File;
-  chain: string;
+  structure: File | string;
+  chain?: string;
   opacity?: number;
   children?: ReactNode;
+  defaultRepresentation?: boolean;
 }) {
   const stage = useStage();
   const [component, setComponent] = useState<StructureComponent | undefined>(
@@ -247,20 +249,23 @@ export function NGLComponent({
 
   useEffect(() => {
     async function loadStructure() {
-      stage.getComponentsByName(structure.name).dispose();
-      const newComponent = await stage.loadFile(structure);
+      const name = typeof structure === "string" ? structure : structure.name;
+      stage.getComponentsByName(name).dispose();
+      const newComponent = await stage.loadFile(structure, {
+        defaultRepresentation,
+      });
       if (!newComponent) {
         return;
       }
-      stage.defaultFileRepresentation(newComponent);
       stage.autoView();
       setComponent(newComponent as StructureComponent);
     }
     loadStructure();
     return () => {
-      stage.getComponentsByName(structure.name).dispose();
+      const name = typeof structure === "string" ? structure : structure.name;
+      stage.getComponentsByName(name).dispose();
     };
-  }, [stage, structure]);
+  }, [stage, structure, defaultRepresentation]);
 
   useEffect(() => {
     if (!component) {
@@ -416,7 +421,7 @@ export function NGLStage({
       <div ref={stageElementRef} className="h-full w-full "></div>
       {stage && (
         <>
-          <div className="absolute right-2 top-2 z-10">
+          <div className="absolute right-4 top-2 z-10">
             <span
               title="Center all"
               className="h-5 w-5 cursor-pointer"
@@ -550,11 +555,26 @@ export function NGLSurface({
 /**
  * Component to render PDB file with NGL using its default representations.
  */
-export function SimpleViewer({ structure }: { structure: File }) {
+export function SimpleViewer({
+  structure,
+  chain = "",
+  defaultRepresentation = true,
+  opacity = 1.0,
+}: {
+  structure: File | string;
+  chain?: string;
+  defaultRepresentation?: boolean;
+  opacity?: number;
+}) {
   return (
     <ErrorBoundary>
       <NGLStage>
-        <NGLComponent structure={structure} chain="" />
+        <NGLComponent
+          structure={structure}
+          chain={chain}
+          defaultRepresentation={defaultRepresentation}
+          opacity={opacity}
+        />
       </NGLStage>
     </ErrorBoundary>
   );
@@ -739,7 +759,7 @@ export function LigandViewer({
         onHover={onLigandHover}
         onPick={onLigandPick}
       >
-        <NGLComponent structure={structure} chain={""} opacity={opacity}>
+        <NGLComponent structure={structure} opacity={opacity}>
           {representations}
         </NGLComponent>
       </NGLStage>

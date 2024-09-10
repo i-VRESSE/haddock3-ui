@@ -36,7 +36,9 @@ export default {
 }
 ```
 
-If you are not using tailwindss, you can make css file that mimics the tailwind classes.
+If you are not using tailwindss, 
+you can make use the included css file `import "@i-vresse/haddock3-ui/dist/index.css"` 
+(based on New York neutral [shadcn/ui theme](https://ui.shadcn.com/themeshttps://ui.shadcn.com/themes)).
 
 ## Usage
 
@@ -47,3 +49,9 @@ Once component is selected
 - use sliders icon button in footer to change props when available
 
 API documentation is available at [https://i-VRESSE.github.io/haddock3-ui/api/](https://i-VRESSE.github.io/haddock3-ui/api/)
+
+### Direct in browser
+
+The components can be used directly in the browser, without your own build system.
+
+[example.html](example.html) is a simple example which uses the latest library from npm using https://esm.sh/ for libray hosting.
