@@ -125,7 +125,7 @@ export function hetGrep(
 /**
  * Filters and extracts specific lines from a PDB file based on the given criteria.
  *
- * @param pdb - The PDB file.
+ * @param file - The PDB file.
  * @param hetUnpadded - Name of hetero residues to keep. For example ATP.
  * @param chain - The chain identifier of the hetero residue to keep.
  * @param sequenceNr - The sequence number of the hetero residue to keep.
