@@ -14,11 +14,6 @@ export function StructureTable({
   headers: Header[];
 }) {
   return (
-    <SortableTable
-      className="structure-table"
-      data={structures}
-      headers={headers}
-      orientation="top"
-    />
+    <SortableTable data={structures} headers={headers} orientation="top" />
   );
 }

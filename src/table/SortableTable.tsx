@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-// import "./SortableTable.css";
 import { DialogViewer } from "../DialogViewer.js";
+import { cn } from "../cn.js";
 
 export type SortDirection = "asc" | "desc";
 
@@ -31,11 +31,13 @@ function HeaderContent({
   sortState,
   setSortState,
   orientation,
+  className = "",
 }: {
   header: Header;
   sortState: SortState;
   setSortState: (state: SortState) => void;
   orientation: Orientation;
+  className?: string;
 }) {
   const scope = orientation === "top" ? "col" : "row";
   const header2 = { ...defaultHeader, ...header };
@@ -53,13 +55,11 @@ function HeaderContent({
     },
   };
   const thProps = {
-    className: "table-header",
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     onClick: () => {},
   };
   if (header.key === sortState.key) {
     icon = icons[orientation][sortState.direction];
-    thProps.className += " cursor-pointer";
     thProps.onClick = () =>
       setSortState({
         key: header.key,
@@ -67,7 +67,6 @@ function HeaderContent({
       });
   } else if (header2.sortable) {
     icon = icons[orientation].both;
-    thProps.className += " sortable";
     thProps.onClick = () =>
       setSortState({
         key: header.key,
@@ -75,9 +74,21 @@ function HeaderContent({
       });
   }
   return (
-    <th scope={scope} {...thProps}>
+    <th
+      scope={scope}
+      className={cn({ "cursor-pointer group": header2.sortable }, className)}
+      {...thProps}
+    >
       <span>{header2.label}</span>
-      <span className="sort-icon">{icon}</span>
+      <span>&nbsp;</span>
+      <span
+        className={cn({
+          "opacity-25 group-hover:opacity-100":
+            header2.sortable && header.key !== sortState.key,
+        })}
+      >
+        {icon}
+      </span>
     </th>
   );
 }
@@ -148,12 +159,24 @@ export function SortableTable({
   orientation = "top",
   headers,
   data,
-  className,
+  className = "",
+  tableClassName = "",
+  theadClassName = "",
+  tbodyClassName = "",
+  trClassName = "",
+  thClassName = "",
+  tdClassName = "",
 }: {
   orientation?: Orientation;
   headers: Header[];
   data: DataItem[];
-  className: string;
+  className?: string;
+  tableClassName?: string;
+  theadClassName?: string;
+  tbodyClassName?: string;
+  trClassName?: string;
+  thClassName?: string;
+  tdClassName?: string;
 }) {
   const initialSortedHeader = headers.find((h) => h.sorted !== undefined);
   // use the first header if no header is sorted as key for a data item
@@ -202,10 +225,15 @@ export function SortableTable({
   }, [data, sortState, headers]);
   if (orientation === "top") {
     return (
-      <div className={className}>
-        <table>
-          <thead>
-            <tr>
+      <div className={cn("", className)}>
+        <table className={cn("caption-bottom text-sm", tableClassName)}>
+          <thead className={cn("&_tr]:border-b", theadClassName)}>
+            <tr
+              className={cn(
+                "border-b transition-colors hover:bg-muted/50",
+                trClassName,
+              )}
+            >
               {headers.map((header) => (
                 <HeaderContent
                   key={header.key}
@@ -213,17 +241,27 @@ export function SortableTable({
                   sortState={sortState}
                   setSortState={setSortState}
                   orientation={orientation}
+                  className={cn(
+                    "h-12 px-4 text-left align-middle font-medium text-muted-foreground",
+                    thClassName,
+                  )}
                 />
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className={cn("[&_tr:last-child]:border-0", tbodyClassName)}>
             {sortedData.map((row) => (
-              <tr key={itemKeyFinder(row, itemKey)} className="table-item">
+              <tr
+                key={itemKeyFinder(row, itemKey)}
+                className={cn(
+                  "border-b transition-colors hover:bg-muted/50",
+                  trClassName,
+                )}
+              >
                 {headers.map((header) => (
                   <td
                     key={`${itemKeyFinder(row, itemKey)}-${header.key}`}
-                    className="table-cell"
+                    className={cn("p-4 align-middle", tdClassName)}
                   >
                     <CellContent data={row} header={header} />
                   </td>
@@ -236,23 +274,35 @@ export function SortableTable({
     );
   } else {
     return (
-      <div className={className}>
-        <table>
-          <thead></thead>
-          <tbody>
+      <div className={cn("", className)}>
+        <table className={cn("caption-bottom text-sm", tableClassName)}>
+          <thead className={cn("", theadClassName)}></thead>
+          <tbody className={cn("", tbodyClassName)}>
             {headers.map((header) => (
-              <tr key={header.key} className="table-item">
+              <tr
+                key={header.key}
+                className={cn("transition-colors", trClassName)}
+              >
                 <HeaderContent
                   key={header.key}
                   header={header}
                   sortState={sortState}
                   setSortState={setSortState}
                   orientation={orientation}
+                  className={cn(
+                    "border-r h-12 px-4 text-left align-middle font-medium text-muted-foreground",
+                    thClassName,
+                  )}
                 />
-                {sortedData.map((col) => (
+                {/* TODO on hover highlight the column */}
+                {sortedData.map((col, index) => (
                   <td
                     key={`${itemKeyFinder(col, itemKey)}-${header.key}`}
-                    className="table-cell"
+                    className={cn(
+                      "p-4 align-middle",
+                      { "border-r": index < sortedData.length - 1 },
+                      tdClassName,
+                    )}
                   >
                     <CellContent data={col} header={header} />
                   </td>

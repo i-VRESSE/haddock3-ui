@@ -1,7 +1,9 @@
+import type { Story } from "@ladle/react";
+
 import type { Header } from "../src/table/SortableTable.js";
 import { type Structure, StructureTable } from "../src/table/StructureTable.js";
-
-import type { Story } from "@ladle/react";
+import cluster_1_model_1 from "./assets/2oob.pdb?url";
+import cluster_2_model_1 from "./assets/4o8j.pdb?url";
 
 export const Minimal: Story = () => (
   <StructureTable
@@ -80,13 +82,6 @@ export const WithNulls: Story = () => (
     ]}
   />
 );
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import cluster_1_model_1 from "./assets/2oob.pdb?url";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import cluster_2_model_1 from "./assets/4o8j.pdb?url";
 
 export const WithStructure: Story = () => (
   <StructureTable

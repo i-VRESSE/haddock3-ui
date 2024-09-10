@@ -13,12 +13,5 @@ export function ClusterTable({
   clusters: Cluster[];
   headers: Header[];
 }) {
-  return (
-    <SortableTable
-      className="cluster-table"
-      data={clusters}
-      headers={headers}
-      orientation="left"
-    />
-  );
+  return <SortableTable data={clusters} headers={headers} orientation="left" />;
 }
