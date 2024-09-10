@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Haddock3 ui components - SimpleViewer example</title>
+    <link
+      href="https://esm.sh/@i-vresse/haddock3-ui/dist/index.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react",
+          "react-dom": "https://esm.sh/react-dom"
+        }
+      }
+    </script>
+    <script type="module">
+      import { createRoot } from "react-dom";
+      import { createElement } from "react";
+      import { SimpleViewer } from "https://esm.sh/@i-vresse/haddock3-ui/dist/molviewer?bundle-deps";
+
+      createRoot(document.getElementById("viewport")).render(
+        createElement(SimpleViewer, { "structure": "https://files.rcsb.org/download/2OOB.pdb.gz" })
+      );
+
+    </script>
+    <div id="viewport" style="width:800px; height:600px;"></div>
+  </body>
+</html>

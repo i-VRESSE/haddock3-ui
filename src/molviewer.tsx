@@ -1,10 +1,10 @@
 import {
   ColormakerRegistry,
-  Component,
-  PickingProxy,
+  type Component,
+  type PickingProxy,
   Stage,
-  Structure,
-  StructureComponent,
+  type Structure,
+  type StructureComponent,
   type StructureRepresentationType,
 } from "ngl";
 import {

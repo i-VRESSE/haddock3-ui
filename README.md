@@ -54,4 +54,5 @@ API documentation is available at [https://i-VRESSE.github.io/haddock3-ui/api/](
 
 The components can be used directly in the browser, without your own build system.
 
-[example.html](example.html) is a simple example which uses the latest library from npm using https://esm.sh/ for libray hosting.
+[example.html](example.html) is a clustered table example which uses the latest library from npm using https://esm.sh/ for libray hosting.
+[example-molviewer.html](example-molviewer.html) is a simple molecule viewer example.
