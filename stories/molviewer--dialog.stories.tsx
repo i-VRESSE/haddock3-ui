@@ -1,4 +1,4 @@
-import { Story } from "@ladle/react";
+import type { Story } from "@ladle/react";
 
 import { DialogViewer } from "../src/DialogViewer.js";
 import { Viewer } from "../src/molviewer.js";

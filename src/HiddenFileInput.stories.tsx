@@ -1,4 +1,4 @@
-import { Story, action } from "@ladle/react";
+import { type Story, action } from "@ladle/react";
 
 import { HiddenFileInput } from "./HiddenFileInput.js";
 
@@ -18,7 +18,7 @@ export const Default: Story = () => (
   >
     <HiddenFileInput name="myfile" file={file} />
     <button
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
       type="submit"
     >
       Submit

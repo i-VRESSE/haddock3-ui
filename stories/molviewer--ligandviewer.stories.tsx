@@ -1,4 +1,4 @@
-import { Story, action } from "@ladle/react";
+import { type Story, action } from "@ladle/react";
 
 import { useEffect, useState } from "react";
 import { LigandViewer } from "../src/molviewer.js";

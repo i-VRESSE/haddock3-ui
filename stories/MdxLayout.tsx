@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 /**
  * Use me as a layout for your MDX files.
  *
@@ -8,7 +10,7 @@
  * export default Layout
  * ``
  */
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: ReactNode }) {
   return (
     <main className="prose dark:prose-invert prose-pre:bg-inherit">
       {children}

@@ -421,7 +421,7 @@ export function NGLStage({
       <div ref={stageElementRef} className="h-full w-full "></div>
       {stage && (
         <>
-          <div className="absolute right-4 top-2 z-10">
+          <div className="absolute top-2 right-4 z-10">
             <span
               title="Center all"
               className="h-5 w-5 cursor-pointer"
@@ -715,7 +715,7 @@ export function LigandViewer({
       {highlight && (
         <NGLResidues
           // @ts-ignore highlight truthy is checked
-          residues={[parseInt(highlight.split("-")[2])]}
+          residues={[Number.parseInt(highlight.split("-")[2])]}
           color={activeColor}
           chain={highlight.split("-")[1]}
           opacity={1.0}

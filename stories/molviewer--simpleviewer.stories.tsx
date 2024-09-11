@@ -1,4 +1,4 @@
-import { Story } from "@ladle/react";
+import type { Story } from "@ladle/react";
 
 import { SimpleViewer } from "../src/molviewer.js";
 import { structure } from "./structure.js";

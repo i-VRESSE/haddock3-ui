@@ -1,5 +1,5 @@
-import { Story } from "@ladle/react";
-import { type StructureRepresentationType } from "ngl";
+import type { Story } from "@ladle/react";
+import type { StructureRepresentationType } from "ngl";
 
 import { NGLComponent, NGLResidues, NGLStage } from "../src/molviewer.js";
 import { structure } from "./structure.js";

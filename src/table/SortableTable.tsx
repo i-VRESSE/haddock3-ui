@@ -76,7 +76,7 @@ function HeaderContent({
   return (
     <th
       scope={scope}
-      className={cn({ "cursor-pointer group": header2.sortable }, className)}
+      className={cn({ "group cursor-pointer": header2.sortable }, className)}
       {...thProps}
     >
       <span>{header2.label}</span>
@@ -307,7 +307,7 @@ export function SortableTable({
                   setSortState={setSortState}
                   orientation={orientation}
                   className={cn(
-                    "border-r h-12 px-4 text-left align-middle font-medium text-muted-foreground",
+                    "h-12 border-r px-4 text-left align-middle font-medium text-muted-foreground",
                     thClassName,
                   )}
                 />

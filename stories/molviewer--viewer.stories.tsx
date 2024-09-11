@@ -1,6 +1,6 @@
-import { Story } from "@ladle/react";
+import type { Story } from "@ladle/react";
 
-import { useState } from "react";
+import { type ChangeEvent, useState } from "react";
 import { Viewer } from "../src/molviewer.js";
 import { structure } from "./structure.js";
 
@@ -33,7 +33,7 @@ export const BallStick: Story = () => {
 export const FromFile: Story<{ chain: string }> = ({ chain }) => {
   const [structure, setStructure] = useState<File | null>(null);
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       setStructure(file);

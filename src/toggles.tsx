@@ -1,6 +1,7 @@
 import {
   type ChangeEvent,
   type PropsWithChildren,
+  type ReactNode,
   useCallback,
   useId,
   useMemo,
@@ -35,7 +36,7 @@ export function useResidueChangeHandler({
   const [lastChecked, setLastChecked] = useState<number | null>(null);
   const handler = useCallback(
     (e: ChangeEvent<HTMLInputElement>, index: number, actpass: ActPass) => {
-      const residue = parseInt(e.target.value);
+      const residue = Number.parseInt(e.target.value);
       const ne = e.nativeEvent as KeyboardEvent;
       let newSelected: number[] = [];
       if (ne.shiftKey && lastChecked !== null) {
@@ -90,7 +91,7 @@ export interface Residue {
   surface?: boolean;
 }
 
-export function FormDescription({ children }: PropsWithChildren): JSX.Element {
+export function FormDescription({ children }: PropsWithChildren): ReactNode {
   return <p className="text-[0.8rem] text-muted-foreground">{children}</p>;
 }
 

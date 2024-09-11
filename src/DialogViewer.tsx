@@ -34,7 +34,7 @@ export function DialogViewer({
         className={cn(
           // classes from https://ui.shadcn.com/docs/components/button
           // base
-          "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
           //size=default
           "h-9 px-4 py-2",
           // variant=secondary
@@ -48,13 +48,13 @@ export function DialogViewer({
       <dialog
         open={dialogOpen}
         className={cn(
-          "w-3/4 h-3/4 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 drop-shadow-xl",
+          "-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 h-3/4 w-3/4 transform drop-shadow-xl",
           classNameDialog,
         )}
       >
-        <div className="w-full flex flex-row justify-between items-center">
+        <div className="flex w-full flex-row items-center justify-between">
           <a
-            className={cn("hover:underline m-2", classNameTitle)}
+            className={cn("m-2 hover:underline", classNameTitle)}
             href={url}
             download={fileName}
           >
@@ -64,7 +64,7 @@ export function DialogViewer({
             className={cn(
               // classes from https://ui.shadcn.com/docs/components/button
               // base
-              "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+              "inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
               //size=default
               "h-9 px-4 py-2",
               // variant=ghost
