@@ -15,6 +15,7 @@ The [haddock3 web application](https://github.com/i-VRESSE/haddock3-webapp) had 
 - Components to render a 3D molecular structure from [PDB file](https://www.wwpdb.org/) using [NGL](https://nglviewer.org/)
 - Components to select residues in a molecule either passive or active
 - Components to handle files
+- Components to render clusters or structures in a sortable table
 
 ## Installation
 
