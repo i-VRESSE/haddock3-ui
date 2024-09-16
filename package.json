@@ -1,11 +1,11 @@
 {
   "name": "@i-vresse/haddock3-ui",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "module",
   "private": false,
   "sideEffects": false,
   "license": "Apache-2.0",
-  "homepage": "https://github.com/i-VRESSE/haddock3-ui#readme",
+  "homepage": "https://i-vresse.github.io/haddock3-ui",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/i-VRESSE/haddock3-ui.git"
@@ -64,7 +64,7 @@
     "vite-plugin-dts": "^3.9.1",
     "vitest": "^2.0.5"
   },
-  "files": ["dist", "src"],
+  "files": ["dist", "src", "!src/**/*.stories.tsx", "!src/**/*.test.ts"],
   "module": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
