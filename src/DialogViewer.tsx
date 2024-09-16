@@ -48,7 +48,7 @@ export function DialogViewer({
       <dialog
         open={dialogOpen}
         className={cn(
-          "-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 h-3/4 w-3/4 transform drop-shadow-xl",
+          "-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-10 h-3/4 w-3/4 transform drop-shadow-xl",
           classNameDialog,
         )}
       >
