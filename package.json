@@ -5,7 +5,7 @@
   "private": false,
   "sideEffects": false,
   "license": "Apache-2.0",
-  "homepage": "https://github.com/i-VRESSE/haddock3-ui#readme",
+  "homepage": "https://i-vresse.github.io/haddock3-ui",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/i-VRESSE/haddock3-ui.git"

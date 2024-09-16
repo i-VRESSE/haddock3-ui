@@ -1,6 +1,6 @@
 # React components for/from haddock3 webapp
 
-[![github repo badge](https://img.shields.io/badge/github-repo-000.svg?logo=github&labelColor=gray&color=blue)]([https://github.com/i-VRESSE/haddock3-ui](https://github.com/i-VRESSE/haddock3-ui))
+[![github repo badge](https://img.shields.io/badge/github-repo-000.svg?logo=github&labelColor=gray&color=blue)](https://github.com/i-VRESSE/haddock3-ui)
 [![npmjs.com](https://img.shields.io/npm/v/@i-vresse/haddock3-ui.svg?style=flat)](https://www.npmjs.com/package/@i-vresse/haddock3-ui)
 [![CI lint](https://github.com/i-VRESSE/haddock3-ui/actions/workflows/lint.yml/badge.svg)](https://github.com/i-VRESSE/haddock3-ui/actions/workflows/lint.yml)
 [![CI test](https://github.com/i-VRESSE/haddock3-ui/actions/workflows/test.yml/badge.svg)](https://github.com/i-VRESSE/haddock3-ui/actions/workflows/test.yml)
@@ -43,9 +43,11 @@ you can make use the included css file `import "@i-vresse/haddock3-ui/dist/index
 
 ## Usage
 
-See [sidebar](https://i-VRESSE.github.io/haddock3-ui) for a list of all components.
+Stories of the components can be found at [https://i-VRESSE.github.io/haddock3-ui](https://i-VRESSE.github.io/haddock3-ui).
+
+See the [sidebar](https://i-VRESSE.github.io/haddock3-ui) for a list of all component stories.
 Once component is selected
-- interact with component
+- interact with component story
 - use `</>` button in footer to see the code.
 - use sliders icon button in footer to change props when available
 
