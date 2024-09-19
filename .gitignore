@@ -30,3 +30,6 @@ i-vresse-haddock3-ui-*.tgz
 # Test
 coverage
 test-results/
+
+# Embedded example is 1.4Mb
+example-embedded.html

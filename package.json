@@ -19,7 +19,8 @@
     "build:js": "tsc --project tsconfig.build.json",
     "build:package": "node build.mjs && pnpm format package.json",
     "build:css": "tailwindcss --content './src/**/*.{js,ts,jsx,tsx,mdx}' -i .ladle/index.css -o dist/index.css --minify",
-    "build:offline": "esbuild --bundle --format=esm --minify src/index.tsx --outfile=dist/index.offline.js",
+    "build:offline": "esbuild --bundle --format=esm --minify src/report.tsx --outfile=dist/report.offline.js",
+    "build:embed": "esbuild --bundle --format=iife --minify --global-name=haddock3ui src/report.tsx --outfile=dist/report.embed.js",
     "typecheck": "tsc --noEmit",
     "docs:ladle": "ladle build",
     "docs:api": "typedoc",
@@ -66,12 +67,7 @@
     "vite-plugin-dts": "^3.9.1",
     "vitest": "^2.0.5"
   },
-  "files": [
-    "dist",
-    "src",
-    "!src/**/*.stories.tsx",
-    "!src/**/*.test.ts"
-  ],
+  "files": ["dist", "src", "!src/**/*.stories.tsx", "!src/**/*.test.ts"],
   "module": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -131,6 +127,18 @@
       "import": {
         "types": "./dist/molviewer.d.ts",
         "default": "./dist/molviewer.js"
+      }
+    },
+    "./report": {
+      "import": {
+        "types": "./dist/report.d.ts",
+        "default": "./dist/report.js"
+      }
+    },
+    "./report.offline": {
+      "import": {
+        "types": "./dist/report.offline.d.ts",
+        "default": "./dist/report.offline.js"
       }
     },
     "./toggles": {
