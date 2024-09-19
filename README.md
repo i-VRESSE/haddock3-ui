@@ -94,6 +94,7 @@ pnpm install
 # Creates dist/index.css
 pnpm build:css
 # Creates dist/report.embedded.js,
+# Which defines the `haddock3ui` global variable that contains the table components
 pnon build:embedded
 # Creates example-embedded.html
 node generate-embedded-example.mjs
