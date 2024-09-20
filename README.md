@@ -78,7 +78,7 @@ pnpm build
 
 See [example-offline.html](example-offline.html) for an example of how to use the offline version.
 
-To prevent CORS issues, the html, css and js files should be served from the same http server.
+To prevent CORS issues, the html, css and js files should be served from the same http server like with `python3 -m http.server` and visit http://localhost:8000/example-offline.html.
 
 ### Embedded
 
