@@ -97,7 +97,7 @@
       }  
     </script>
     <script type="module">
-      import{ renderClusterTable } from "./dist/report.offline.js";
+      import{ renderClusterTable } from "./dist/report.bundle.js";
       const props = JSON.parse(document.getElementById("datatable2").text)
       renderClusterTable(document.getElementById("root"), props.headers, props.clusters);
     </script>

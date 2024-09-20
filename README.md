@@ -60,18 +60,18 @@ The components can be used directly in the browser, without your own build syste
 [example.html](example.html) is a clustered table example which uses the latest package version from npm via https://esm.sh/.
 [example-molviewer.html](example-molviewer.html) is a simple molecule viewer example.
 
-### Offline
+### Offline bundle
 
 The table components are used by the caprieval module of haddock3 to generate report.html. 
 Haddock3 can be used [offline](https://www.bonvinlab.org/haddock3/modules/general_module_params.html#offline), 
 which means after installation the running of haddock3 will be isolated from the Internet.
 
-To use the table components offline, you can build an offline version of the components with
+To use the table components offline, you can build an offline bundle of the components with
 
 ```bash
 # Installs dependencies
 pnpm install
-# Create dist/index.css and dist/report.offline.js,
+# Create dist/index.css and dist/report.bundle.js,
 # which contains the table components and all of its dependencies
 pnpm build
 ```
@@ -79,25 +79,3 @@ pnpm build
 See [example-offline.html](example-offline.html) for an example of how to use the offline version.
 
 To prevent CORS issues, the html, css and js files should be served from the same http server like with `python3 -m http.server` and visit http://localhost:8000/example-offline.html.
-
-### Embedded
-
-Similar to offline, the js and css can be embedded into a HTML file instead of importing js and css files.
-
-To genererate an embedded example, run
-
-```bash
-# Installs dependencies
-pnpm install
-# Creates dist/index.css
-pnpm build:css
-# Creates dist/report.embedded.js,
-# Which defines the `haddock3ui` global variable that contains the table components
-pnon build:embedded
-# Creates example-embedded.html
-node generate-embedded-example.mjs
-# Start a web server
-python3 -m http.server
-```
-
-Then open `http://localhost:8000/example-embedded.html` in your browser.

@@ -25,7 +25,7 @@ for (const file of await readdir("dist", { recursive: true })) {
   const jsfn = "./dist/" + file;
   // Each .js file has a corresponding .d.ts file
   let types = jsfn.replace(/\.js$/, ".d.ts");
-  if (types === "./dist/report.offline.d.ts") {
+  if (types === "./dist/report.bundle.d.ts") {
     types = "./dist/report.d.ts";
   }
   packageJson.exports[key] = {

@@ -97,6 +97,11 @@
   </script>
   <script type="module">
     import { renderClusterTable } from "https://esm.sh/@i-vresse/haddock3-ui/dist/report?bundle-deps";
+    // Instead of esm.sh you could also use the report.bundle.js file from a CDN or your own server
+    // import { renderClusterTable } from "https://cdn.jsdelivr.net/npm/@i-vresse/haddock3-ui/dist/report.bundle.js";
+    // import { renderClusterTable } from "https://your-own-server.com/haddock3-ui/dist/report.bundle.js";
+    // Note that report.bundle.js only includes the components needed for haddock3 analysis report
+    // The css file can be imported in a similar way
     const props = JSON.parse(document.getElementById("datatable2").text)
     renderClusterTable(document.getElementById("root"), props.headers, props.clusters);
   </script>

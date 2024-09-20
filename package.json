@@ -19,8 +19,7 @@
     "build:js": "tsc --project tsconfig.build.json",
     "build:package": "node build.mjs && pnpm format package.json",
     "build:css": "tailwindcss --content './src/**/*.{js,ts,jsx,tsx,mdx}' -i .ladle/index.css -o dist/index.css --minify",
-    "build:offline": "esbuild --bundle --format=esm --minify src/report.tsx --outfile=dist/report.offline.js",
-    "build:embed": "esbuild --bundle --format=iife --minify --global-name=haddock3ui src/report.tsx --outfile=dist/report.embed.js",
+    "build:offline": "esbuild --bundle --format=esm --minify src/report.tsx --outfile=dist/report.bundle.js",
     "typecheck": "tsc --noEmit",
     "docs:ladle": "ladle build",
     "docs:api": "typedoc",
@@ -129,16 +128,16 @@
         "default": "./dist/molviewer.js"
       }
     },
+    "./report.bundle": {
+      "import": {
+        "types": "./dist/report.d.ts",
+        "default": "./dist/report.bundle.js"
+      }
+    },
     "./report": {
       "import": {
         "types": "./dist/report.d.ts",
         "default": "./dist/report.js"
-      }
-    },
-    "./report.offline": {
-      "import": {
-        "types": "./dist/report.d.ts",
-        "default": "./dist/report.offline.js"
       }
     },
     "./toggles": {
