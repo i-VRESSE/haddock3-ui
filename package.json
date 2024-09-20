@@ -1,6 +1,6 @@
 {
   "name": "@i-vresse/haddock3-ui",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "type": "module",
   "private": false,
   "sideEffects": false,
@@ -15,10 +15,11 @@
   },
   "scripts": {
     "dev": "ladle serve",
-    "build": "pnpm run build:js && pnpm build:css && pnpm build:package",
+    "build": "pnpm run build:js && pnpm build:css && pnpm build:bundle && pnpm build:package",
     "build:js": "tsc --project tsconfig.build.json",
     "build:package": "node build.mjs && pnpm format package.json",
     "build:css": "tailwindcss --content './src/**/*.{js,ts,jsx,tsx,mdx}' -i .ladle/index.css -o dist/index.css --minify",
+    "build:bundle": "esbuild --bundle --format=esm --minify src/report.tsx --outfile=dist/report.bundle.js",
     "typecheck": "tsc --noEmit",
     "docs:ladle": "ladle build",
     "docs:api": "typedoc",
@@ -54,6 +55,7 @@
     "@vitest/browser": "^2.0.5",
     "@vitest/coverage-istanbul": "^2.0.5",
     "autoprefixer": "^10.4.19",
+    "esbuild": "^0.23.1",
     "playwright": "^1.46.0",
     "postcss": "^8.4.40",
     "sync-fetch": "^0.5.2",
@@ -124,6 +126,18 @@
       "import": {
         "types": "./dist/molviewer.d.ts",
         "default": "./dist/molviewer.js"
+      }
+    },
+    "./report.bundle": {
+      "import": {
+        "types": "./dist/report.d.ts",
+        "default": "./dist/report.bundle.js"
+      }
+    },
+    "./report": {
+      "import": {
+        "types": "./dist/report.d.ts",
+        "default": "./dist/report.js"
       }
     },
     "./toggles": {

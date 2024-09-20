@@ -16,7 +16,7 @@ const clusterHeaders: Header[] = [
     sorted: "asc",
   },
   {
-    key: "n",
+    key: "size",
     label: "Size",
   },
   { key: "score", label: "HADDOCK score [a.u.]", type: "stats" },

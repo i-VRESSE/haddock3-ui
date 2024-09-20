@@ -57,5 +57,25 @@ API documentation is available at [https://i-VRESSE.github.io/haddock3-ui/api/](
 
 The components can be used directly in the browser, without your own build system.
 
-[example.html](example.html) is a clustered table example which uses the latest library from npm using https://esm.sh/ for libray hosting.
+[example.html](example.html) is a clustered table example which uses the latest package version from npm via https://esm.sh/.
 [example-molviewer.html](example-molviewer.html) is a simple molecule viewer example.
+
+### Offline bundle
+
+The table components are used by the caprieval module of haddock3 to generate report.html. 
+Haddock3 can be used [offline](https://www.bonvinlab.org/haddock3/modules/general_module_params.html#offline), 
+which means after installation the running of haddock3 will be isolated from the Internet.
+
+To use the table components offline, you can build an offline bundle of the components with
+
+```bash
+# Installs dependencies
+pnpm install
+# Create dist/index.css and dist/report.bundle.js,
+# which contains the table components and all of its dependencies
+pnpm build
+```
+
+See [example-offline.html](example-offline.html) for an example of how to use the offline version.
+
+To prevent CORS issues, the html, css and js files should be served from the same http server like with `python3 -m http.server` and visit http://localhost:8000/example-offline.html.
