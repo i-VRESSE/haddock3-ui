@@ -1,5 +1,4 @@
-import { page } from "@vitest/browser/context";
-import { afterEach, beforeEach, describe, expect, test } from "vitest";
+import { afterEach, beforeEach, describe, test } from "vitest";
 import { renderClusterTable, renderStructureTable } from "./report.js";
 
 let root: HTMLElement;
