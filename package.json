@@ -15,7 +15,7 @@
   },
   "scripts": {
     "dev": "ladle serve",
-    "build": "pnpm run build:js && pnpm build:css && pnpm build:package",
+    "build": "pnpm run build:js && pnpm build:css && pnpm build:offline && pnpm build:package",
     "build:js": "tsc --project tsconfig.build.json",
     "build:package": "node build.mjs && pnpm format package.json",
     "build:css": "tailwindcss --content './src/**/*.{js,ts,jsx,tsx,mdx}' -i .ladle/index.css -o dist/index.css --minify",
@@ -137,7 +137,7 @@
     },
     "./report.offline": {
       "import": {
-        "types": "./dist/report.offline.d.ts",
+        "types": "./dist/report.d.ts",
         "default": "./dist/report.offline.js"
       }
     },

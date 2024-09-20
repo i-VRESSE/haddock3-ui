@@ -71,11 +71,9 @@ To use the table components offline, you can build an offline version of the com
 ```bash
 # Installs dependencies
 pnpm install
-# Creates dist/index.css
-pnpm build:css
-# Creates dist/report.offline.js, 
+# Create dist/index.css and dist/report.offline.js,
 # which contains the table components and all of its dependencies
-pnpm build:offline
+pnpm build
 ```
 
 See [example-offline.html](example-offline.html) for an example of how to use the offline version.
