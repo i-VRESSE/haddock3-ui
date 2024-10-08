@@ -371,3 +371,42 @@ export function PickIn3D({
     </div>
   );
 }
+
+/**
+ * Toggles the selection state of a residue number in either the "act" or "pass" list.
+ *
+ * @param resno - The residue number to toggle.
+ * @param pick - The selection type, either "act" or "pass".
+ * @param current - The current selection state containing "act" and "pass" lists.
+ * @returns The new selection state with the residue number toggled in the appropriate list.
+ */
+export function toggleResidue(
+  resno: number,
+  pick: ActPass,
+  current: ResidueSelection,
+): ResidueSelection {
+  const newSelection = {
+    act: current.act,
+    pass: current.pass,
+  };
+  if (pick === "act") {
+    if (newSelection.act.includes(resno)) {
+      newSelection.act = newSelection.act.filter((r) => r !== resno);
+    } else {
+      newSelection.act = [...newSelection.act, resno];
+      newSelection.pass = current.pass.filter(
+        (r) => !newSelection.act.includes(r),
+      );
+    }
+  } else {
+    if (newSelection.pass.includes(resno)) {
+      newSelection.pass = newSelection.pass.filter((r) => r !== resno);
+    } else {
+      newSelection.pass = [...newSelection.pass, resno];
+      newSelection.act = current.act.filter(
+        (r) => !newSelection.pass.includes(r),
+      );
+    }
+  }
+  return newSelection;
+}
