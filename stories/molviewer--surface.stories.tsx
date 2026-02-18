@@ -35,11 +35,11 @@ export const WithSelection = () => (
   <SurfaceViewer
     {...{
       active: [932, 935, 936, 949, 950, 952, 958],
-      activeColor: "green",
+      activeColor: "red",
       passive: [970],
       neighbours: [971, 972],
-      passiveColor: "yellow",
-      neighboursColor: "orange",
+      passiveColor: "green",
+      neighboursColor: "yellow",
       defaultColor: "white",
     }}
   />
@@ -49,10 +49,10 @@ export const WithHighlight = () => (
   <SurfaceViewer
     {...{
       active: [932, 935, 936, 949, 950, 952, 958],
-      activeColor: "green",
+      activeColor: "red",
       passive: [970],
       neighbours: [971, 972],
-      passiveColor: "yellow",
+      passiveColor: "green",
       neighboursColor: "orange",
       defaultColor: "white",
       highlight: 971,
@@ -76,11 +76,11 @@ export const Pickable = () => {
       <SurfaceViewer
         {...{
           active: [932, 935, 936, 949, 950, 952, 958],
-          activeColor: "green",
+          activeColor: "red",
           passive: [970],
           neighbours: [971, 972],
-          passiveColor: "yellow",
-          neighboursColor: "orange",
+          passiveColor: "green",
+          neighboursColor: "yellow",
           defaultColor: "white",
           onPick: (chain, resno, comp, resname) =>
             setPicked([chain, resno, comp, resname]),
@@ -107,11 +107,11 @@ export const PickableActiveOrPassive = () => {
       <SurfaceViewer
         {...{
           active: [932, 935, 936, 949, 950, 952, 958],
-          activeColor: "green",
+          activeColor: "red",
           passive: [970],
           neighbours: [971, 972],
-          passiveColor: "yellow",
-          neighboursColor: "orange",
+          passiveColor: "green",
+          neighboursColor: "yellow",
           defaultColor: "white",
           onPick: (chain, resno, comp, resname) =>
             setPicked([chain, resno, comp, resname, what]),
@@ -136,11 +136,11 @@ export const Hoverable = () => {
       <SurfaceViewer
         {...{
           active: [932, 935, 936, 949, 950, 952, 958],
-          activeColor: "green",
+          activeColor: "red",
           passive: [970],
           neighbours: [971, 972],
-          passiveColor: "yellow",
-          neighboursColor: "orange",
+          passiveColor: "green",
+          neighboursColor: "yellow",
           defaultColor: "white",
           onHover: (chain, resno, comp, resname) =>
             setHovered([chain, resno, comp, resname]),

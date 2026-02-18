@@ -335,7 +335,7 @@ export function PickIn3D({
       <div>3D viewer picks</div>
       {/* TODO make stylable from outside */}
       <div
-        className={value === "act" ? "bg-green-100" : ""}
+        className={value === "act" ? "bg-red-100" : ""}
         aria-label="Picking in 3D viewer will select active"
         title="Picking in 3D viewer will select active"
       >
@@ -352,9 +352,9 @@ export function PickIn3D({
         </label>
       </div>
       <div
-        className={value === "pass" ? "bg-yellow-100" : ""}
-        aria-label="Picking in 3D will viwer select passive"
-        title="Picking in 3D will viwer select passive"
+        className={value === "pass" ? "bg-green-100" : ""}
+        aria-label="Picking in 3D viewer will select passive"
+        title="Picking in 3D viewer will select passive"
       >
         <input
           type="radio"
