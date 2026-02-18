@@ -478,10 +478,10 @@ export function NGLSurface({
   passive = [],
   neighbours = [],
   highlight,
-  activeColor = "green",
-  passiveColor = "yellow",
-  neighboursColor = "orange",
-  highlightColor = "red",
+  activeColor = "red",
+  passiveColor = "green",
+  neighboursColor = "yellow",
+  highlightColor = "orange",
   defaultColor = "white",
 }: {
   active: number[];
@@ -620,8 +620,8 @@ export function Viewer({
   theme?: "light" | "dark";
 }) {
   const isDark = theme === "dark";
-  const activeColor = isDark ? "green" : "lime";
-  const passiveColor = isDark ? "orange" : "yellow";
+  const activeColor = isDark ? "red" : "orange";
+  const passiveColor = isDark ? "green" : "lime";
   const opacity = 0.5;
 
   let representations = <></>;
