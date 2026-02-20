@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
           cache: "pnpm"
           cache-dependency-path: ./pnpm-lock.yaml
           registry-url: https://registry.npmjs.org/
@@ -28,7 +28,7 @@ jobs:
       - run: pnpm build
       - run: |
           if [[ $GITHUB_REF_NAME == *next* ]]; then
-            pnpm publish --tag next --no-git-checks
+            pnpm publish --tag next --no-git-checks --provenance
           else
-            pnpm publish --no-git-checks
+            pnpm publish --no-git-checks --provenance
           fi
