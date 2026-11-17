@@ -232,12 +232,17 @@ export const defaultRepresentationNames = new Set([
 export function NGLComponent({
   structure,
   chain = "",
+  model,
   opacity = 1.0,
   children,
   defaultRepresentation = true,
 }: {
   structure: File | string;
   chain?: string;
+  /**
+   * Index of the model to show (0 is the first), all models if undefined.
+   */
+  model?: number;
   opacity?: number;
   children?: ReactNode;
   defaultRepresentation?: boolean;
@@ -288,11 +293,14 @@ export function NGLComponent({
     if (!component) {
       return;
     }
-    if (chain === "") {
-      component.setSelection("");
-    } else {
-      component.setSelection(`:${chain}`);
+    const selection = [];
+    if (chain !== "") {
+      selection.push(`:${chain}`);
     }
+    if (model !== undefined) {
+      selection.push(`/${model}`);
+    }
+    component.setSelection(selection.join(" and "));
     stage.autoView();
     return () => {
       if (!component) {
@@ -309,7 +317,7 @@ export function NGLComponent({
       }
       component.setSelection("");
     };
-  }, [stage, chain, component]);
+  }, [stage, chain, model, component]);
 
   return (
     <>
@@ -483,6 +491,7 @@ export function NGLSurface({
   neighboursColor = "yellow",
   highlightColor = "orange",
   defaultColor = "white",
+  opacity = 1.0,
 }: {
   active: number[];
   passive: number[];
@@ -493,6 +502,7 @@ export function NGLSurface({
   defaultColor?: string;
   highlightColor?: string;
   neighboursColor?: string;
+  opacity?: number;
 }) {
   const name = useId();
 
@@ -533,6 +543,7 @@ export function NGLSurface({
     component.addRepresentation("surface", {
       name,
       color: defaultColor,
+      opacity,
     });
     return () => {
       const repr = stage.getRepresentationsByName(name).first;
@@ -540,7 +551,7 @@ export function NGLSurface({
         repr.dispose();
       }
     };
-  }, [name, defaultColor, stage, component]);
+  }, [name, defaultColor, opacity, stage, component]);
 
   useEffect(() => {
     const repr = stage.getRepresentationsByName(name).first;
@@ -593,6 +604,8 @@ export function Viewer({
   onHover,
   onMouseLeave = () => {},
   selectionOpacity = 0.5,
+  surfaceOpacity = 0.6,
+  model = 0,
   theme = "light",
 }: {
   structure: File;
@@ -617,6 +630,15 @@ export function Viewer({
    * Opacity of the active, passive and neighbours residues.
    */
   selectionOpacity?: number;
+  /**
+   * Opacity of the surface, when the selection is rendered as surface.
+   * Below 1 the cartoon shows through.
+   */
+  surfaceOpacity?: number;
+  /**
+   * Index of the model to show of a multi-model structure (0 is the first).
+   */
+  model?: number;
   theme?: "light" | "dark";
 }) {
   const isDark = theme === "dark";
@@ -636,6 +658,7 @@ export function Viewer({
         passiveColor={passiveColor}
         neighboursColor={passiveColor}
         defaultColor={"white"}
+        opacity={surfaceOpacity}
       />
     );
   } else {
@@ -680,7 +703,7 @@ export function Viewer({
   return (
     <ErrorBoundary>
       <NGLStage onMouseLeave={onMouseLeave} onHover={onHover} onPick={onPick}>
-        <NGLComponent structure={structure} chain={chain}>
+        <NGLComponent structure={structure} chain={chain} model={model}>
           {representations}
         </NGLComponent>
       </NGLStage>
